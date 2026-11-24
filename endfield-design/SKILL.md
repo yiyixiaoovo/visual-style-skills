@@ -64,7 +64,7 @@ endfield-design/
 │   ├── kv-16x9.html         ← 网页主视觉
 │   ├── panel-ui-1600.html   ← 系统面板页（侧栏 + 数据卡）
 │   └── social-1200x1600.html← 竖版社交图
-├── demo/                    ← 3 张样张
+├── demo/                    ← 本地渲染样张（png 不入库）
 └── LICENSE / VERSION
 ```
 

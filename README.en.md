@@ -28,16 +28,6 @@ Each package loads directly as an AI-agent skill (`SKILL.md`) and is also usable
 **How to choose**: archive numbers + crop marks + monochrome + square corners → Arknights pack.
 Pills + fluorescence + three hues → Endfield pack. Both in one layout → redo it; don't blend.
 
-## Preview
-
-| Dossier cover | Operator file card | Data dossier |
-|---|---|---|
-| <img src="arknights-design/demo/poster.png" width="240"> | <img src="arknights-design/demo/card.png" width="240"> | <img src="arknights-design/demo/infographic.png" width="240"> |
-
-| Paper archive page | Anniversary KV | Endfield panel |
-|---|---|---|
-| <img src="arknights-design/demo/lore.png" width="240"> | <img src="arknights-design/demo/kv-anniversary.png" width="240"> | <img src="endfield-design/demo/panel-ui.png" width="240"> |
-
 ## Quick start
 
 ```bash

@@ -108,10 +108,8 @@ for (const t of tpls) {
 stray.length ? warn(`模板内令牌外颜色 ${stray.length} 处（应迁移到 ak.css）: ${stray.slice(0, 4).join(' ')}`)
              : ok('模板未引入令牌外颜色');
 
-// 6 demo 样张与模板一一对应
-const demoDir = join(ROOT, 'demo');
-const demos = existsSync(demoDir) ? readdirSync(demoDir).filter((f) => f.endsWith('.png')) : [];
-demos.length ? ok(`demo 样张 ${demos.length} 张`) : warn('demo/ 无样张');
+// 6 demo 样张：本地渲染，png 不入库（见 .gitignore）
+ok('demo/*.png 不入库（需要时本地渲染）');
 
 // 版本台账一致性
 const verPath = join(ROOT, 'VERSION'), logPath = join(ROOT, 'CHANGELOG.md');

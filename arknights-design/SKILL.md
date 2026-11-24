@@ -126,16 +126,7 @@ arknights-design/
 │   ├── run.mjs                   ← 质检脚本自测（负样本必须被拦下）
 │   └── fixtures/                 ← 7 个样本：2 应通过 / 5 应被拦下
 ├── LICENSE / VERSION
-└── demo/
-    ├── poster.png                ← R1 样张（罗德岛青）
-    ├── poster-rhine.png          ← 同一份 HTML，data-faction="rhine"
-    ├── slide.png                 ← R2 样张
-    ├── card.png                  ← R3 样张
-    ├── infographic.png           ← R4 样张
-    ├── chapter.png               ← R5 样张
-    ├── kv-anniversary.png        ← 庆典 KV 样张（拉特兰冷调）
-    └── lore.png                  ← 纸本史料页样张（泰拉记事社语域）
-    └── spread.png                ← R6 样张
+└── demo/                        ← 本地渲染的样张 / 动效页 / 字体核对页（png 不入库）
 ```
 
 ## 阵营配色（同一结构，换一个槽）

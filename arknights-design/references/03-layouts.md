@@ -197,15 +197,15 @@
 做系列物料时，把这张表填满再动手——否则一套四页会有三页长得一样。
 ## 可直接复制的模板
 
-| 配方 | 模板文件 | 渲染样张 |
-|---|---|---|
+| 配方 | 模板文件 |
+|---|---|
 | R1 | `templates/poster-3x4.html` | `demo/poster.png` / `demo/poster-rhine.png` |
-| R2 | `templates/slide-16x9.html` | `demo/slide.png` |
-| R3 | `templates/card-3x4.html` | `demo/card.png` |
-| R4 | `templates/infographic-square.html` | `demo/infographic.png` |
-| R5 | `templates/chapter-square.html` | `demo/chapter.png` |
-| R6 | `templates/spread-compare.html` | `demo/spread.png` |
-| R7 | `templates/longform-1200.html` | `demo/longform.png` |
-| R8 | `templates/web-hero-1920.html` | `demo/web-hero.png` |
+| R2 | `templates/slide-16x9.html` |
+| R3 | `templates/card-3x4.html` |
+| R4 | `templates/infographic-square.html` |
+| R5 | `templates/chapter-square.html` |
+| R6 | `templates/spread-compare.html` |
+| R7 | `templates/longform-1200.html` |
+| R8 | `templates/web-hero-1920.html` |
 
 复制模板后只改三处：`data-faction`、文案、图版的 `viewBox` 坐标。**不要改布局骨架**——骨架就是配方的定义。

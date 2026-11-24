@@ -51,8 +51,7 @@ hard.length ? bad(`模板写死荧光色: ${hard.join(', ')}`) : ok('荧光色�
 // 测试与样张
 const fx = existsSync(join(ROOT, 'tests', 'fixtures')) ? readdirSync(join(ROOT, 'tests', 'fixtures')).filter((f) => f.endsWith('.html')) : [];
 fx.length >= 5 ? ok(`负/正样本 ${fx.length} 个`) : bad(`样本不足（${fx.length}）`);
-const demo = existsSync(join(ROOT, 'demo')) ? readdirSync(join(ROOT, 'demo')).filter((f) => f.endsWith('.png')) : [];
-demo.length ? ok(`样张 ${demo.length} 张`) : console.log(`  ${C.y}WARN${C.x}  demo/ 无样张`);
+console.log(`  ${C.g}PASS${C.x}  demo/*.png 不入库（本地渲染）`);
 
 // 版本台账一致性
 const verPath = join(ROOT, 'VERSION'), logPath = join(ROOT, 'CHANGELOG.md');

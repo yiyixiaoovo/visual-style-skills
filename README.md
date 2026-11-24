@@ -28,16 +28,6 @@
 **怎么选**：出现「档案编号 + 裁切标记 + 单色 + 直角」→ 方舟包；出现「胶囊 + 荧光 + 三色」→ 终末地包。
 一张图里两种都有 → 返工，不是融合。
 
-## 预览
-
-| 档案封面 | 人物档案卡 | 数据信息图 |
-|---|---|---|
-| <img src="arknights-design/demo/poster.png" width="240"> | <img src="arknights-design/demo/card.png" width="240"> | <img src="arknights-design/demo/infographic.png" width="240"> |
-
-| 纸本史料页 | 庆典 KV | 终末地面板 |
-|---|---|---|
-| <img src="arknights-design/demo/lore.png" width="240"> | <img src="arknights-design/demo/kv-anniversary.png" width="240"> | <img src="endfield-design/demo/panel-ui.png" width="240"> |
-
 ## 快速开始
 
 ```bash
