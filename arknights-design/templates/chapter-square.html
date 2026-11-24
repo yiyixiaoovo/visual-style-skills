@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>观测记录 / OBSERVATION LOG — R5 章节页</title>
+<link rel="stylesheet" href="../assets/ak.css">
+<style>
+  .ak-page { padding: 0; }
+  .p-head { position: absolute; left: 56px; right: 56px; top: 44px; z-index: 6;
+            display: flex; align-items: center; justify-content: space-between; }
+  .p-rule { position: absolute; left: 56px; right: 56px; top: 80px; z-index: 6; }
+
+  .big-no {
+    position: absolute; left: 40px; top: 150px; z-index: 3;
+    font-family: var(--ak-font-display); font-weight: 700;
+    font-size: 380px; line-height: .8; letter-spacing: -.07em;
+    color: var(--ak-paper);
+  }
+
+  .label-row { position: absolute; left: 56px; top: 610px; z-index: 5;
+               display: flex; align-items: center; gap: 14px; }
+  .sq { width: 10px; height: 10px; background: var(--ak-accent); flex: none; }
+
+  .zh-title { position: absolute; left: 56px; top: 648px; z-index: 5;
+              font-size: 64px; line-height: 1; letter-spacing: .16em; }
+  .en-title { position: absolute; left: 56px; top: 740px; z-index: 5;
+              font-size: 56px; line-height: 1; letter-spacing: -.04em; color: transparent;
+              -webkit-text-stroke: 1px var(--ak-paper); }
+  .accent-line { position: absolute; left: 56px; top: 840px; width: 240px; height: 2px;
+                 background: var(--ak-accent); z-index: 5; }
+
+  .p-foot { position: absolute; left: 56px; right: 56px; bottom: 44px; z-index: 6;
+            display: flex; align-items: flex-end; justify-content: space-between; }
+  .ticks { position: absolute; left: 56px; right: 56px; bottom: 92px; z-index: 5; }
+</style>
+</head>
+<body class="ak" data-mode="dark" data-faction="rhodes">
+
+<main class="ak-page ak-page--square">
+  <div class="ak-crop" style="inset:20px"></div>
+
+  <header class="p-head">
+    <div class="ak-row" style="gap:12px">
+      <div class="ak-crosshair"></div>
+      <span class="ak-label ak-label--bright">SECTION 02</span>
+    </div>
+    <span class="ak-label">AK·ED·02 &nbsp;/&nbsp; <span class="ak-num">1225.10</span></span>
+  </header>
+  <hr class="ak-rule p-rule">
+
+  <div class="big-no">02</div>
+
+  <div class="label-row">
+    <span class="sq"></span>
+    <span class="ak-label ak-label--bright ak-label--hard">PART TWO</span>
+  </div>
+  <div class="zh-title ak-zh ak-zh--wide">观测记录</div>
+  <div class="en-title ak-mega">OBSERVATION</div>
+  <div class="accent-line"></div>
+
+  <div class="ticks ak-ticks"></div>
+
+  <footer class="p-foot">
+    <span class="ak-label ak-label--hard">RHODES ISLAND · ARCHIVE</span>
+    <span class="ak-label">02 / 12</span>
+  </footer>
+</main>
+
+</body>
+</html>

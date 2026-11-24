@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>系统面板 / SYSTEM PANEL — 终末地界面页</title>
+<link rel="stylesheet" href="../assets/ef.css">
+<style>
+  .panel-page { display: grid; grid-template-columns: 260px 1fr; gap: 24px;
+                width: 1600px; height: 1000px; padding: 40px; }
+  .side { display: flex; flex-direction: column; gap: 10px; }
+  .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+  .brand__mark { width: 22px; height: 22px; background: var(--ef-yellow); clip-path: polygon(0 0,100% 0,0 100%); }
+  .brand__t { font-size: 13px; font-weight: 700; letter-spacing: .34em; text-transform: uppercase; }
+  .nav-item { display: flex; align-items: center; gap: 12px; height: 48px; padding: 0 18px;
+              border-radius: var(--ef-r-pill); color: var(--ef-ink-2); font-size: 14px;
+              letter-spacing: .08em; border: 1px solid transparent; }
+  .nav-item.is-on { background: var(--ef-panel-2); border-color: var(--ef-line);
+                    color: var(--ef-ink); }
+  .nav-item.is-on::before { content: ""; width: 6px; height: 6px; border-radius: 50%;
+                            background: var(--ef-yellow); }
+  .side__foot { margin-top: auto; display: flex; flex-direction: column; gap: 12px; }
+
+  .main { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+  .topbar { display: flex; align-items: center; justify-content: space-between; }
+  .title { font-size: 76px; line-height: .9; letter-spacing: -.035em; text-transform: uppercase; font-weight: 700; }
+  .title em { font-style: normal; color: transparent; -webkit-text-stroke: 2px var(--ef-yellow); }
+
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .stat { background: var(--ef-panel-2); border: 1px solid var(--ef-line);
+          border-radius: var(--ef-r-pill-lg); padding: 22px 26px; }
+  .stat__k { font-family: var(--ef-font-mono); font-size: 10px; letter-spacing: .22em;
+             text-transform: uppercase; color: var(--ef-ink-2); }
+  .stat__v { margin-top: 10px; font-size: 44px; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .stat__d { margin-top: 6px; font-size: 12px; color: var(--ef-mint); }
+
+  .row2 { display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; flex: 1; min-height: 0; }
+  .box { background: var(--ef-panel-2); border: 1px solid var(--ef-line);
+         border-radius: var(--ef-r-pill-lg); padding: 24px 26px; display: flex; flex-direction: column; }
+  .box__h { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+  .bars { display: flex; align-items: flex-end; gap: 8px; flex: 1; }
+  .bars i { flex: 1; background: var(--ef-panel); border-radius: var(--ef-r-xs) var(--ef-r-xs) 0 0; }
+  .bars i.y { background: var(--ef-yellow); }
+  .bars i.m { background: var(--ef-magenta); }
+  .list { display: flex; flex-direction: column; }
+  .li { display: flex; align-items: center; justify-content: space-between;
+        padding: 13px 0; border-bottom: 1px solid var(--ef-line); font-size: 14px; }
+  .li:last-child { border-bottom: 0; }
+  .li__k { color: var(--ef-ink-2); font-family: var(--ef-font-mono); font-size: 11px; letter-spacing: .16em; }
+  .foot { display: flex; align-items: center; justify-content: space-between;
+          padding-top: 16px; border-top: 1px solid var(--ef-line); }
+</style>
+</head>
+<body class="ef">
+<main class="ef-page panel-page">
+  <div class="ef-glow ef-glow--y" style="width:520px;height:520px;left:-200px;top:-220px"></div>
+  <div class="ef-glow ef-glow--m" style="width:360px;height:360px;right:-140px;bottom:-160px;opacity:.18"></div>
+
+  <aside class="side">
+    <div class="brand"><span class="brand__mark"></span><span class="brand__t">Endfield</span></div>
+    <span class="nav-item is-on">总览 / Overview</span>
+    <span class="nav-item">协议 / Protocol</span>
+    <span class="nav-item">编队 / Squad</span>
+    <span class="nav-item">档案 / Archive</span>
+    <span class="nav-item">设置 / Settings</span>
+    <div class="side__foot">
+      <span class="ef-chip ef-chip--g"><span class="ef-dot"></span>服务器在线</span>
+      <span class="ef-label">v1.0.4 · CN-01</span>
+    </div>
+  </aside>
+
+  <section class="main">
+    <div class="topbar">
+      <div>
+        <span class="ef-label">System panel / 系统面板</span>
+        <h1 class="title" style="margin-top:12px">PROTOCOL<br><em>ZERO</em></h1>
+      </div>
+      <div class="ef-row" style="gap:10px">
+        <span class="ef-chip ef-chip--m"><span class="ef-dot"></span>信号波动</span>
+        <span class="ef-pill ef-pill--y">同步数据</span>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><span class="stat__k">Progress</span>
+        <div class="stat__v">68%</div><div class="stat__d">+4.2% 今日</div></div>
+      <div class="stat"><span class="stat__k">Units</span>
+        <div class="stat__v">12</div><div class="stat__d">全部就绪</div></div>
+      <div class="stat"><span class="stat__k">Risk</span>
+        <div class="stat__v" style="color:var(--ef-magenta)">03</div><div class="stat__d" style="color:var(--ef-magenta)">需复核</div></div>
+    </div>
+
+    <div class="row2">
+      <div class="box">
+        <div class="box__h">
+          <span class="ef-label">Signal / 信号强度</span>
+          <span class="ef-chip">72h</span>
+        </div>
+        <div class="bars">
+          <i style="height:34%"></i><i style="height:52%"></i><i class="y" style="height:68%"></i>
+          <i style="height:46%"></i><i class="m" style="height:82%"></i><i style="height:38%"></i>
+          <i style="height:26%"></i><i style="height:44%"></i><i class="y" style="height:58%"></i>
+          <i style="height:30%"></i>
+        </div>
+      </div>
+      <div class="box">
+        <div class="box__h"><span class="ef-label">Queue / 队列</span><span class="ef-chip ef-chip--g">实时</span></div>
+        <div class="list">
+          <div class="li"><span class="li__k">S-04</span><span>废弃编组站 · 68%</span></div>
+          <div class="li"><span class="li__k">S-05</span><span>信号塔 · 42%</span></div>
+          <div class="li"><span class="li__k">S-06</span><span>旧隧道 · 12%</span></div>
+          <div class="li"><span class="li__k">S-07</span><span style="color:var(--ef-ink-2)">未解锁</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span class="ef-label">终末地 · 零号协议 / PROTOCOL ZERO</span>
+      <div class="ef-row" style="gap:12px">
+        <span class="ef-chip ef-chip--y">SECTOR 04</span>
+        <span class="ef-label">01 / 06</span>
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>

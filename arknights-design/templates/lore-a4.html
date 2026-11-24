@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>源石与本源的年代记 — 泰拉记事社 · 卷七</title>
+<link rel="stylesheet" href="../assets/ak.css">
+<style>
+  /* 语域：泰拉记事社（纸本）。白纸黑字 + 一处朱红 + 2–9px 软圆角 */
+  .ak-page { padding: 0; }
+
+  .p-head { position: absolute; left: 48px; right: 48px; top: 36px; z-index: 8;
+            display: flex; align-items: baseline; justify-content: space-between; }
+  .p-rule { position: absolute; left: 48px; right: 48px; top: 66px; z-index: 8; }
+
+  .kicker { position: absolute; left: 48px; top: 96px; display: flex; align-items: center; gap: 10px; z-index: 7; }
+  .sq { width: 8px; height: 8px; background: var(--ak-accent); flex: none; }
+
+  .big-no {
+    position: absolute; left: 44px; top: 122px; z-index: 6;
+    font-family: var(--ak-font-display); font-weight: 700;
+    font-size: 152px; line-height: .8; letter-spacing: -.06em;
+    color: var(--ak-paper);
+  }
+  .no-cap { position: absolute; left: 50px; top: 258px; z-index: 6;
+            font-family: var(--ak-font-mono); font-size: 9px; letter-spacing: .3em;
+            color: var(--ak-paper-2); text-transform: uppercase; }
+
+  /* 竖排标题：纸本语域的标志 */
+  .vtitle {
+    position: absolute; right: 44px; top: 112px; z-index: 6;
+    writing-mode: vertical-rl; text-orientation: upright;
+    font-size: 46px; line-height: 1.18; letter-spacing: .12em;
+    font-weight: 600;
+  }
+  .vtitle__accent { color: var(--ak-accent); }
+
+  .lede { position: absolute; left: 48px; top: 300px; width: 330px; z-index: 6; }
+  .lede__zh { font-size: 26px; line-height: 1.3; letter-spacing: .06em; }
+  .lede__en { margin-top: 10px; font-family: var(--ak-font-mono); font-size: 9px;
+              letter-spacing: .3em; color: var(--ak-paper-2); text-transform: uppercase; }
+  .lede__rule { margin: 18px 0 0; width: 120px; height: 2px; background: var(--ak-accent); }
+
+  .body { position: absolute; left: 48px; top: 410px; width: 330px; z-index: 6;
+          display: flex; flex-direction: column; gap: 14px; }
+  .body p { font-size: 13px; line-height: 2; letter-spacing: .02em; text-align: justify; }
+  .body p:first-child::first-letter {
+    float: left; font-family: var(--ak-font-display); font-size: 46px; line-height: .9;
+    margin: 4px 8px 0 0; color: var(--ak-accent); font-weight: 700;
+  }
+  .marg { position: absolute; right: 148px; top: 410px; width: 190px; z-index: 6;
+          display: flex; flex-direction: column; gap: 10px; }
+  .marg__k { font-family: var(--ak-font-mono); font-size: 8px; letter-spacing: .3em;
+             color: var(--ak-paper-2); text-transform: uppercase; }
+  .marg__v { font-size: 12px; line-height: 1.7; letter-spacing: .04em; }
+
+  .plate { position: absolute; left: 48px; right: 48px; top: 736px; height: 246px; z-index: 5; }
+  .plate__box { position: absolute; inset: 0; overflow: hidden; border-radius: 9px; }
+  .plate__cap { position: absolute; left: 2px; bottom: -22px;
+                display: flex; gap: 14px; align-items: center; }
+  .plate__cap span { font-family: var(--ak-font-mono); font-size: 8px; letter-spacing: .26em;
+                     color: var(--ak-paper-2); text-transform: uppercase; }
+
+  .seal { position: absolute; right: 48px; top: 700px; z-index: 7;
+          border: 1.5px solid var(--ak-accent); color: var(--ak-accent);
+          border-radius: 3px; padding: 7px 10px 7px 14px;
+          font-family: var(--ak-font-mono); font-size: 9px; letter-spacing: .3em;
+          transform: rotate(-5deg); }
+
+  .p-foot { position: absolute; left: 48px; right: 48px; bottom: 40px; z-index: 7;
+            display: flex; align-items: flex-end; justify-content: space-between;
+            padding-top: 12px; border-top: 1px solid var(--ak-line); }
+</style>
+</head>
+<body class="ak" data-surface="lore">
+
+<main class="ak-page ak-page--a4">
+  <div class="ak-crop" style="inset:16px"></div>
+
+  <header class="p-head">
+    <div class="ak-row" style="gap:10px">
+      <div class="ak-crosshair"></div>
+      <span class="ak-label ak-label--bright">TERRA HISTORICUS · 泰拉记事社</span>
+    </div>
+    <span class="ak-label">卷七 &nbsp;/&nbsp; <span class="ak-num">1225.10</span></span>
+  </header>
+  <hr class="ak-rule p-rule">
+
+  <div class="kicker">
+    <span class="sq"></span>
+    <span class="ak-label ak-label--bright ak-label--hard">VOLUME VII / SOURCE &amp; ORIGIN</span>
+  </div>
+
+  <div class="big-no">07</div>
+  <div class="no-cap">CHAPTER · 档案编号 AK·TH·07</div>
+
+  <div class="vtitle">源石与<span class="vtitle__accent">本源</span>的年代记</div>
+
+  <div class="lede">
+    <div class="lede__zh ak-zh">第三纪 · 观测者手记</div>
+    <div class="lede__en">Annals of Originium and Origin</div>
+    <hr class="lede__rule">
+  </div>
+
+  <section class="body">
+    <p>观测始于一场持续十一日的静默。源石在地表之下缓慢迁移，沿途的矿区、河道与村舍被逐一记入档案；没有人知道它要去哪里，记录者只是记录。</p>
+    <p>第三纪的文献里，源石被写作"沉眠的火"。这个说法此后被历代编纂者沿用，直到第十一版年鉴才被删去——不是因为错误，而是因为过于准确。</p>
+    <p>本卷收录观测点十二处的原始记录、采样剖面与三段口述史。凡与本卷冲突的记载，以本卷为准；凡本卷自相矛盾之处，保留原文，不作校改。</p>
+  </section>
+
+  <aside class="marg">
+    <span class="marg__k">Sources</span>
+    <span class="marg__v">观测点 A-01 至 C-05；口述史三则，采于 1225.09。</span>
+    <span class="marg__k">Note</span>
+    <span class="marg__v">原文保留，不做校勘。</span>
+  </aside>
+
+  <figure class="plate">
+    <div class="plate__box" style="background:var(--ak-plate)">
+      <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 698 246" preserveAspectRatio="none" aria-hidden="true">
+        <!-- 地层剖面：横层 + 一处朱红标记层 + 竖向探井 -->
+        <g stroke="var(--ak-paper)" stroke-opacity=".22" stroke-width="1">
+          <line x1="0" y1="38"  x2="698" y2="38"/>
+          <line x1="0" y1="74"  x2="698" y2="74"/>
+          <line x1="0" y1="112" x2="698" y2="112"/>
+          <line x1="0" y1="158" x2="698" y2="158"/>
+          <line x1="0" y1="200" x2="698" y2="200"/>
+        </g>
+        <!-- 阴影层：45° 排线（两处夹层） -->
+        <g stroke="var(--ak-paper)" stroke-opacity=".30" stroke-width="1">
+          <line x1="150" y1="112" x2="80"  y2="182"/>
+          <line x1="186" y1="112" x2="116" y2="182"/>
+          <line x1="222" y1="112" x2="152" y2="182"/>
+          <line x1="258" y1="112" x2="188" y2="182"/>
+          <line x1="604" y1="158" x2="524" y2="238"/>
+          <line x1="640" y1="158" x2="560" y2="238"/>
+          <line x1="676" y1="158" x2="596" y2="238"/>
+          <line x1="712" y1="158" x2="632" y2="238"/>
+        </g>
+        <!-- 朱红标记层 -->
+        <line x1="0" y1="158" x2="698" y2="158" stroke="var(--ak-accent)" stroke-width="2"/>
+        <!-- 三个取样点 -->
+        <g stroke="var(--ak-accent)" stroke-width="1.5">
+          <line x1="150" y1="150" x2="150" y2="166"/>
+          <line x1="298" y1="150" x2="298" y2="166"/>
+          <line x1="596" y1="150" x2="596" y2="166"/>
+        </g>
+        <g fill="var(--ak-accent)" font-family="Cascadia Mono, Consolas, monospace" font-size="7" letter-spacing="1">
+          <text x="146" y="144">S-01</text>
+          <text x="294" y="144">S-02</text>
+          <text x="592" y="144">S-03</text>
+        </g>
+        <!-- 竖向探井 -->
+        <g stroke="var(--ak-paper)" stroke-opacity=".55" stroke-width="1">
+          <line x1="438" y1="18" x2="438" y2="246"/>
+          <line x1="474" y1="18" x2="474" y2="246"/>
+        </g>
+        <g stroke="var(--ak-paper)" stroke-opacity=".45" stroke-width="1">
+          <line x1="438" y1="38"  x2="424" y2="38"/>
+          <line x1="438" y1="74"  x2="424" y2="74"/>
+          <line x1="438" y1="112" x2="424" y2="112"/>
+          <line x1="438" y1="158" x2="424" y2="158"/>
+          <line x1="438" y1="200" x2="424" y2="200"/>
+        </g>
+        <g fill="var(--ak-paper)" fill-opacity=".55" font-family="Cascadia Mono, Consolas, monospace" font-size="7" letter-spacing="1">
+          <text x="480" y="41">0</text>
+          <text x="480" y="77">−20</text>
+          <text x="480" y="115">−40</text>
+          <text x="480" y="161">−60</text>
+          <text x="480" y="203">−80</text>
+        </g>
+        <!-- 探井顶部的取样点 -->
+        <g stroke="var(--ak-paper)" stroke-opacity=".6" stroke-width="1">
+          <line x1="456" y1="10" x2="456" y2="26"/>
+          <circle cx="456" cy="8" r="3" fill="var(--ak-accent)" stroke="none"/>
+        </g>
+        <!-- 左侧深度标尺 -->
+        <g stroke="var(--ak-paper)" stroke-opacity=".18" stroke-width="1">
+          <line x1="16" y1="0" x2="16" y2="246"/>
+        </g>
+      </svg>
+    </div>
+    <figcaption class="plate__cap">
+      <span>FIG. 07 — 观测点 C-05 剖面</span>
+      <span style="display:block;width:80px;height:1px;background:var(--ak-line)"></span>
+      <span>SCAN 1:1 · 1225.10.04</span>
+    </figcaption>
+  </figure>
+
+  <div class="seal">ARCHIVE COPY</div>
+
+  <footer class="p-foot">
+    <span class="ak-label ak-label--hard">TERRA HISTORICUS · 纸本档案</span>
+    <span class="ak-num" style="font-size:9px;letter-spacing:.3em;color:var(--ak-paper-2)">AK·TH·07·2501·A</span>
+    <span class="ak-label">07 / 12</span>
+  </footer>
+</main>
+
+</body>
+</html>

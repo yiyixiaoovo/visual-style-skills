@@ -1,0 +1,14 @@
+{
+  "name": "visual-style-skills",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Arknights / Endfield visual style skills — 两套平行语域的设计系统与质检链",
+  "scripts": {
+    "check": "npm run check:ak && npm run check:ef",
+    "check:ak": "node arknights-design/scripts/validate-package.mjs && node arknights-design/tests/run.mjs",
+    "check:ef": "node endfield-design/scripts/validate-package.mjs && node endfield-design/tests/run.mjs",
+    "verify": "node arknights-design/scripts/verify-all.mjs",
+    "verify:ef": "node endfield-design/scripts/verify.mjs endfield-design/templates/kv-16x9.html endfield-design/templates/panel-ui-1600.html endfield-design/templates/social-1200x1600.html",
+    "export": "node arknights-design/scripts/export.mjs"
+  }
+}

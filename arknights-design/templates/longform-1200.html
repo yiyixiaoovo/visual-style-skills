@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>档案长图 / ARCHIVE LONGFORM — R7</title>
+<link rel="stylesheet" href="../assets/ak.css">
+<style>
+  .ak-page { padding: 0; width: 1200px; height: 2400px; min-height: 0; }
+  .band { position: absolute; left: 56px; right: 56px; }
+  .band--1 { top: 56px; height: 744px; }
+  .band--2 { top: 856px; height: 744px; }
+  .band--3 { top: 1656px; height: 688px; }
+  .sep { position: absolute; left: 56px; right: 56px; height: 1px; background: var(--ak-line); }
+
+  .head { display: flex; justify-content: space-between; align-items: center; }
+  .no { font-family: var(--ak-font-display); font-weight: 700; font-size: 300px;
+        line-height: .8; letter-spacing: -.06em; }
+  .kick { display: flex; align-items: center; gap: 12px; }
+  .sq { width: 10px; height: 10px; background: var(--ak-accent); flex: none; }
+  .h1 { font-size: 96px; line-height: .9; letter-spacing: -.045em; }
+  .zh { margin-top: 18px; font-size: 34px; letter-spacing: .16em; }
+
+  .rows { display: flex; flex-direction: column; }
+  .row { display: grid; grid-template-columns: 120px 1fr 200px; gap: 24px;
+         align-items: baseline; padding: 26px 0; border-bottom: 1px solid var(--ak-line); }
+  .row__k { font-family: var(--ak-font-mono); font-size: 10px; letter-spacing: .22em; color: var(--ak-paper-2); }
+  .row__v { font-size: 22px; letter-spacing: .02em; }
+  .row__n { text-align: right; font-family: var(--ak-font-mono); font-size: 22px; font-variant-numeric: tabular-nums; }
+
+  .plate { position: relative; height: 300px; background: var(--ak-plate); overflow: hidden; }
+  .plate::before { content: ""; position: absolute; inset: -20%;
+    background-image: radial-gradient(circle at center, var(--ak-paper) 30%, transparent 32%);
+    background-size: 6px 6px; opacity: .10; transform: rotate(-45deg); }
+  .quote { font-size: 40px; line-height: 1.4; letter-spacing: .04em; }
+  .foot { display: flex; justify-content: space-between; align-items: flex-end; }
+</style>
+</head>
+<body class="ak" data-mode="dark" data-faction="rhodes">
+<main class="ak-page">
+  <div class="ak-crop"></div>
+
+  <!-- 01 章节：密 -->
+  <section class="band band--1">
+    <div class="head">
+      <div class="ak-row" style="gap:12px"><div class="ak-crosshair"></div>
+        <span class="ak-label ak-label--bright">ARCHIVE LONGFORM / 长图</span></div>
+      <span class="ak-label">REF. AK-LF-07</span>
+    </div>
+    <hr class="ak-rule" style="margin:12px 0 40px">
+    <div class="kick" style="margin-bottom:24px">
+      <span class="sq"></span><span class="ak-label ak-label--bright ak-label--hard">SECTION 01</span>
+    </div>
+    <div class="no">01</div>
+    <div class="h1 ak-mega">OBSERVATION</div>
+    <div class="zh ak-zh ak-zh--wide">观测记录 · 第三纪</div>
+    <div style="position:absolute;right:0;top:4px;display:flex;flex-direction:column;gap:12px;align-items:flex-end">
+      <span class="ak-label">观测点 12 处</span>
+      <span class="ak-label">采样 1225.09</span>
+      <span class="ak-label ak-label--hard">卷七</span>
+    </div>
+    <div style="position:absolute;left:0;right:0;bottom:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-top:16px;border-top:1px solid var(--ak-line)">
+      <div class="ak-field"><span class="ak-field__k">ARCHIVE / 档案</span><span class="ak-field__v ak-zh">第三纪 · 卷七</span></div>
+      <div class="ak-field"><span class="ak-field__k">SAMPLES / 样本</span><span class="ak-field__v">12</span></div>
+      <div class="ak-field"><span class="ak-field__k">STATUS / 状态</span><span class="ak-field__v" style="color:var(--ak-status)">● SEALED</span></div>
+    </div>
+  </section>
+  <div class="sep" style="top:830px"></div>
+
+  <!-- 02 数据：更密 -->
+  <section class="band band--2">
+    <div class="kick" style="margin-bottom:30px">
+      <span class="sq"></span><span class="ak-label ak-label--bright ak-label--hard">SECTION 02 / 采样</span>
+    </div>
+    <div class="rows">
+      <div class="row"><span class="row__k">A-01</span><span class="row__v ak-zh">北侧通风井</span><span class="row__n">0.42</span></div>
+      <div class="row"><span class="row__k">A-02</span><span class="row__v ak-zh">旧升降机平台</span><span class="row__n">0.38</span></div>
+      <div class="row"><span class="row__k">B-03</span><span class="row__v ak-zh">第三竖井底部</span><span class="row__n" style="color:var(--ak-accent)">0.91</span></div>
+      <div class="row"><span class="row__k">B-04</span><span class="row__v ak-zh">东侧排水廊道</span><span class="row__n">0.55</span></div>
+      <div class="row"><span class="row__k">C-05</span><span class="row__v ak-zh">地表观测点</span><span class="row__n">0.27</span></div>
+    </div>
+    <div class="ak-row" style="gap:14px;margin-top:26px">
+      <span class="ak-dot" style="background:var(--ak-accent)"></span>
+      <span class="ak-note">阈值 0.70 ppm；B-03 超标 30%，建议封锁。</span>
+    </div>
+  </section>
+  <div class="sep" style="top:1630px"></div>
+
+  <!-- 03 图版 + 结语：空 -->
+  <section class="band band--3">
+    <figure style="margin-top:26px">
+      <div class="plate ak-plate">
+        <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 1088 300" preserveAspectRatio="none" aria-hidden="true">
+          <g stroke="var(--ak-paper)" stroke-opacity=".2" stroke-width="1">
+            <line x1="0" y1="60" x2="1088" y2="60"/><line x1="0" y1="120" x2="1088" y2="120"/>
+            <line x1="0" y1="180" x2="1088" y2="180"/><line x1="0" y1="240" x2="1088" y2="240"/>
+          </g>
+          <line x1="0" y1="150" x2="1088" y2="150" stroke="var(--ak-accent)" stroke-width="2"/>
+          <circle cx="880" cy="76" r="4" fill="var(--ak-accent)"/>
+        </svg>
+      </div>
+      <figcaption class="ak-label" style="margin-top:10px">FIG. 07 — 剖面 C-05 · 1:500</figcaption>
+    </figure>
+    <div class="quote ak-zh" style="margin-top:34px;width:720px">凡与本卷冲突的记载，以本卷为准；凡自相矛盾之处，保留原文，不作校改。</div>
+    <div class="foot" style="margin-top:44px">
+      <span class="ak-label ak-label--hard">RHODES ISLAND · ARCHIVE</span>
+      <span class="ak-num" style="font-size:9px;letter-spacing:.3em;color:var(--ak-paper-2)">AK·LF·07·2501·A</span>
+      <span class="ak-label">07 / 12</span>
+    </div>
+  </section>
+</main>
+</body>
+</html>

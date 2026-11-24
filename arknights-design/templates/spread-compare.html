@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>方案对比 / CURRENT vs PROPOSED — R6 双栏跨页</title>
+<link rel="stylesheet" href="../assets/ak.css">
+<style>
+  .ak-page { padding: 0; }
+  .p-head { position: absolute; left: 56px; right: 56px; top: 40px; z-index: 6;
+            display: flex; align-items: center; justify-content: space-between; }
+  .p-rule { position: absolute; left: 56px; right: 56px; top: 76px; z-index: 6; }
+
+  .kicker { position: absolute; left: 56px; top: 112px; display: flex; align-items: center; gap: 12px; z-index: 5; }
+  .sq { width: 10px; height: 10px; background: var(--ak-accent); flex: none; }
+
+  .headline { position: absolute; left: 56px; top: 146px; z-index: 5;
+              font-size: 88px; line-height: .85; letter-spacing: -.05em; }
+  .headline__sub { position: absolute; left: 56px; top: 236px; z-index: 5;
+                   font-size: 24px; letter-spacing: .18em; color: var(--ak-paper-2); }
+
+  .divider { position: absolute; left: 800px; top: 330px; bottom: 150px; width: 1px;
+             background: var(--ak-line); z-index: 4; }
+
+  .col { position: absolute; top: 330px; bottom: 150px; width: 700px; z-index: 5; }
+  .col--a { left: 56px; }
+  .col--b { left: 844px; }
+
+  .col__tag { display: flex; align-items: center; justify-content: space-between;
+              padding-bottom: 12px; border-bottom: 1px solid var(--ak-line-strong); }
+  .col__letter { font-family: var(--ak-font-display); font-weight: 700; font-size: 72px;
+                 line-height: .8; letter-spacing: -.05em; }
+  .col--a .col__letter { color: transparent; -webkit-text-stroke: 1.5px var(--ak-paper); }
+  .col--b .col__letter { color: var(--ak-accent); }
+
+  .col__rows { margin-top: 22px; display: flex; flex-direction: column; }
+  .crow { display: grid; grid-template-columns: 120px 1fr; gap: 20px; align-items: baseline;
+          padding: 16px 0; border-bottom: 1px solid var(--ak-line); }
+  .crow__k { font-family: var(--ak-font-mono); font-size: 10px; letter-spacing: .2em;
+             color: var(--ak-paper-2); text-transform: uppercase; }
+  .crow__v { font-size: 21px; letter-spacing: .02em; }
+  .crow__v small { display: block; margin-top: 5px; font-size: 10px; letter-spacing: .2em;
+                   color: var(--ak-paper-2); }
+  .col--b .crow__v { color: var(--ak-paper); }
+
+  .verdict { position: absolute; left: 56px; right: 56px; bottom: 92px; z-index: 5;
+             display: flex; align-items: center; gap: 18px; padding-top: 16px;
+             border-top: 1px solid var(--ak-line); }
+  .verdict .ak-note { color: var(--ak-paper); }
+
+  .p-foot { position: absolute; left: 56px; right: 56px; bottom: 34px; z-index: 6;
+            display: flex; align-items: flex-end; justify-content: space-between; }
+</style>
+</head>
+<body class="ak" data-mode="dark" data-faction="rhodes">
+
+<main class="ak-page ak-page--slide">
+  <div class="ak-crop" style="inset:20px"></div>
+
+  <header class="p-head">
+    <div class="ak-row" style="gap:12px">
+      <div class="ak-crosshair"></div>
+      <span class="ak-label ak-label--bright">OPTION ANALYSIS · 07</span>
+    </div>
+    <span class="ak-label">REF. AK-OP-07 &nbsp;/&nbsp; <span class="ak-num">1225.10.04</span></span>
+  </header>
+  <hr class="ak-rule p-rule">
+
+  <div class="kicker">
+    <span class="sq"></span>
+    <span class="ak-label ak-label--bright ak-label--hard">COMPARISON / 方案对比</span>
+  </div>
+  <div class="headline ak-mega">CURRENT<br>PROPOSED</div>
+
+  <div class="divider"></div>
+
+  <section class="col col--a">
+    <div class="col__tag">
+      <span class="ak-label ak-label--bright">A — CURRENT / 现状</span>
+      <span class="col__letter">A</span>
+    </div>
+    <div class="col__rows">
+      <div class="crow">
+        <span class="crow__k">Window</span>
+        <span class="crow__v ak-zh">18:00–22:00<small>4 小时，夜间作业</small></span>
+      </div>
+      <div class="crow">
+        <span class="crow__k">Units</span>
+        <span class="crow__v ak-zh">12 人，单组接应<small>无替补</small></span>
+      </div>
+      <div class="crow">
+        <span class="crow__k">Signal</span>
+        <span class="crow__v ak-zh">常规无线电<small>全程可被截获</small></span>
+      </div>
+      <div class="crow">
+        <span class="crow__k">Risk</span>
+        <span class="crow__v ak-zh">暴露概率 68%<small>基于三次推演均值</small></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="col col--b">
+    <div class="col__tag">
+      <span class="ak-label ak-label--bright">B — PROPOSED / 替代</span>
+      <span class="col__letter">B</span>
+    </div>
+    <div class="col__rows">
+      <div class="crow">
+        <span class="crow__k">Window</span>
+        <span class="crow__v ak-zh">04:00–04:40<small>40 分钟，交班间隙</small></span>
+      </div>
+      <div class="crow">
+        <span class="crow__k">Units</span>
+        <span class="crow__v ak-zh">12 人 + 2 组接应<small>双通道撤离</small></span>
+      </div>
+      <div class="crow">
+        <span class="crow__k">Signal</span>
+        <span class="crow__v ak-zh">全程静默<small>仅数据链推送</small></span>
+      </div>
+      <div class="crow">
+        <span class="crow__k">Risk</span>
+        <span class="crow__v ak-zh" style="color:var(--ak-accent)">暴露概率 19%<small>窗口短、无射频频段</small></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="verdict">
+    <span class="ak-dot" style="background:var(--ak-accent)"></span>
+    <span class="ak-note">建议采用 B 案：暴露概率下降 49%，代价是编队与接应人数增加 2 组。</span>
+  </div>
+
+  <footer class="p-foot">
+    <span class="ak-label ak-label--hard">ISSUED BY / 罗德岛档案科</span>
+    <span class="ak-label">07 / 12</span>
+  </footer>
+</main>
+
+</body>
+</html>

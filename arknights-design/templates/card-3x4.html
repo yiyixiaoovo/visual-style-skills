@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>灰隼 / GREY FALCON — R3 人物档案卡</title>
+<link rel="stylesheet" href="../assets/ak.css">
+<style>
+  .ak-page { padding: 0; }
+  .p-head { position: absolute; left: 40px; right: 40px; top: 34px; z-index: 6;
+            display: flex; align-items: center; justify-content: space-between; }
+  .p-rule { position: absolute; left: 40px; right: 40px; top: 66px; z-index: 6; }
+
+  .plate { position: absolute; left: 40px; right: 40px; top: 88px; height: 552px; z-index: 3; }
+  .plate__scan { position: absolute; inset: 0; opacity: .10; }
+  .plate__edge { position: absolute; inset: 0; border: 1px solid var(--ak-line); }
+  .plate__cap { position: absolute; left: 10px; right: 10px; bottom: 9px;
+                display: flex; justify-content: space-between;
+                font-family: var(--ak-font-mono); font-size: 8px; letter-spacing: .24em;
+                color: var(--ak-ink-2); text-transform: uppercase; }
+
+  .name { position: absolute; left: 40px; top: 664px; z-index: 5; }
+  .name__zh { font-size: 54px; line-height: 1; letter-spacing: .16em; }
+  .name__en { margin-top: 12px; font-family: var(--ak-font-mono); font-size: 15px;
+              letter-spacing: .42em; color: var(--ak-ink-2); text-transform: uppercase; }
+
+  .rank { position: absolute; right: 40px; top: 672px; z-index: 5; text-align: right; }
+  .rank__dots { display: flex; gap: 5px; justify-content: flex-end; margin-top: 10px; }
+  .rank__dots i { width: 12px; height: 12px; background: var(--ak-paper); display: block; }
+  .rank__dots i.off { background: transparent; }
+
+  .rule2 { position: absolute; left: 40px; right: 40px; top: 790px; z-index: 5; }
+
+  .fields { position: absolute; left: 40px; right: 40px; top: 806px; z-index: 5;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; }
+  .fields .ak-field__v { font-size: 19px; }
+  .fields .ak-field__v small { display: block; font-size: 10px; letter-spacing: .2em;
+                               color: var(--ak-ink-2); margin-top: 6px; }
+
+  .p-foot { position: absolute; left: 40px; right: 40px; bottom: 34px; z-index: 6;
+            display: flex; align-items: flex-end; justify-content: space-between; }
+  .barcode-wrap { width: 190px; display: flex; flex-direction: column; gap: 6px; }
+  .barcode-wrap .ak-barcode { height: 28px; background-image:
+      repeating-linear-gradient(90deg, var(--ak-ink) 0 2px, transparent 2px 5px),
+      repeating-linear-gradient(90deg, var(--ak-ink) 0 1px, transparent 1px 9px); }
+  .barcode-wrap .ak-num { font-size: 8px; letter-spacing: .3em; color: var(--ak-ink-2); }
+  .p-foot .ak-stamp { border-color: var(--ak-alert); color: var(--ak-alert); }
+</style>
+</head>
+<body class="ak" data-mode="paper" data-faction="rhodes">
+
+<main class="ak-page ak-page--card">
+  <div class="ak-crop" style="inset:16px"></div>
+
+  <header class="p-head">
+    <div class="ak-row" style="gap:12px">
+      <div class="ak-crosshair"></div>
+      <span class="ak-label ak-label--bright">PERSONNEL FILE · 07</span>
+    </div>
+    <span class="ak-label" style="color:var(--ak-status)"><span class="ak-dot" style="background:currentColor"></span> ACTIVE</span>
+  </header>
+  <hr class="ak-rule p-rule">
+
+  <figure class="plate">
+    <div class="ak-plate" style="width:100%;height:100%"></div>
+    <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 670 552" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <clipPath id="h3"><circle cx="335" cy="206" r="92"/></clipPath>
+        <linearGradient id="f3" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#dcd8cf" stop-opacity="0"/>
+          <stop offset=".7" stop-color="#dcd8cf" stop-opacity="0"/>
+          <stop offset="1" stop-color="#dcd8cf" stop-opacity=".85"/>
+        </linearGradient>
+      </defs>
+      <g fill="none" stroke="#0b0c0e" stroke-opacity=".18">
+        <circle cx="335" cy="206" r="132"/>
+        <circle cx="335" cy="206" r="158" stroke-opacity=".08"/>
+      </g>
+      <path d="M-20 552 C-6 392 44 300 335 278 C626 300 676 392 690 552 Z" fill="#0b0c0e" fill-opacity=".92"/>
+      <circle cx="335" cy="206" r="92" fill="#0b0c0e" fill-opacity=".92"/>
+      <g clip-path="url(#h3)">
+        <rect x="220" y="186" width="240" height="32" fill="#dcd8cf"/>
+        <line x1="220" y1="218" x2="460" y2="218" stroke="var(--ak-accent)" stroke-width="2"/>
+      </g>
+      <rect x="0" y="330" width="670" height="222" fill="url(#f3)"/>
+      <g stroke="#0b0c0e" stroke-opacity=".5" stroke-width="1">
+        <line x1="335" y1="40" x2="335" y2="60"/>
+        <line x1="212" y1="206" x2="232" y2="206"/>
+        <line x1="438" y1="206" x2="458" y2="206"/>
+      </g>
+    </svg>
+    <div class="plate__edge"></div>
+    <div class="plate__scan ak-scan"></div>
+    <figcaption class="plate__cap"><span>PHOTO 07 — 1:1</span><span>ARCHIVE COPY</span></figcaption>
+  </figure>
+
+  <div class="name">
+    <div class="name__zh ak-zh ak-zh--wide">灰隼</div>
+    <div class="name__en">Grey Falcon</div>
+  </div>
+
+  <div class="rank">
+    <span class="ak-label">RARITY</span>
+    <div class="rank__dots"><i></i><i></i><i></i><i></i><i class="off"></i><i class="off"></i></div>
+  </div>
+  <hr class="ak-rule rule2">
+
+  <div class="fields">
+    <div class="ak-field">
+      <span class="ak-field__k">CLASS / 职业</span>
+      <span class="ak-field__v ak-zh">先锋<small>VANGUARD</small></span>
+    </div>
+    <div class="ak-field">
+      <span class="ak-field__k">ORIGIN / 出身</span>
+      <span class="ak-field__v ak-zh">S-07 废弃矿区<small>MINING ZONE</small></span>
+    </div>
+  </div>
+
+  <footer class="p-foot">
+    <div class="barcode-wrap">
+      <div class="ak-barcode"></div>
+      <span class="ak-num">AK·PF·07·1225·B</span>
+    </div>
+    <span class="ak-stamp" style="transform:rotate(-4deg)">ARCHIVE</span>
+    <span class="ak-label">07 / 12</span>
+  </footer>
+</main>
+
+</body>
+</html>

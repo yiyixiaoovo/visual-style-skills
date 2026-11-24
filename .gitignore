@@ -1,0 +1,7 @@
+node_modules/
+.export/
+render/
+_shots/
+*.log
+.DS_Store
+Thumbs.db

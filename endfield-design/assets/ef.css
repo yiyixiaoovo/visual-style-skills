@@ -1,0 +1,159 @@
+/* ============================================================================
+   ENDFIELD DESIGN SYSTEM · 终末地语域 v0.1
+   ----------------------------------------------------------------------------
+   与「舟味档案」的三条分歧（这不是方舟的变体，是另一套语言）：
+   1. 三色并行且各有职责：黄=主操作 / 品红=状态警示 / 薄荷=确认在线。
+   2. 圆角是语言：42/54px 胶囊 + 50% 圆；4px 只给微型件。
+   3. 允许发光，但只给荧光色、模糊 ≤ 40px、每页 ≤ 2 处。
+   甲方：鹰角《明日方舟：终末地》。以下数值为官方站点 CSS 实测。
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+h1, h2, h3, h4, p, figure { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+img, svg { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: 0; }
+
+:root {
+  /* 中性：基底比方舟亮一档，且是暖灰 */
+  --ef-void:      #141414;
+  --ef-base:      #191919;
+  --ef-panel:     #35373c;
+  --ef-panel-2:   #1f1f22;
+  --ef-ink:       #f0f0f0;
+  --ef-ink-2:     #999999;
+  --ef-line:      rgba(255, 255, 255, .12);
+  --ef-line-2:    rgba(255, 255, 255, .26);
+
+  /* 三色职责（不要互换语义） */
+  --ef-yellow:    #fffa00;   /* 主操作 / 当前 / 高亮，22 处实测 */
+  --ef-yellow-2:  #fff000;
+  --ef-magenta:   #ff1aac;   /* 状态 / 警示 / 次操作，6 处 */
+  --ef-mint:      #00ffa2;   /* 确认 / 在线 / 完成，6 处 */
+
+  /* 圆角：终末地的核心识别，不要收成方角 */
+  --ef-r-xs:      4px;
+  --ef-r-sm:      8px;
+  --ef-r-pill:    42px;
+  --ef-r-pill-lg: 54px;
+
+  --ef-font:      "Bahnschrift", "Gilroy", "Segoe UI", "Microsoft YaHei", sans-serif;
+  --ef-font-zh:   "Microsoft YaHei", "HarmonyOS Sans SC", "Noto Sans SC", sans-serif;
+  --ef-font-mono: "Cascadia Mono", "Consolas", monospace;
+
+  /* 字距：大标题压得比方舟更狠（实测 -.0625rem / -.58rem） */
+  --ef-track-tight: -.045em;
+  --ef-track-loose: .16em;
+
+  /* 动效：比方舟快一档 */
+  --ef-dur: .2s;
+  --ef-dur-slow: .3s;
+  --ef-ease: cubic-bezier(.25, .8, .25, 1);
+}
+
+body.ef {
+  background: #0b0b0b;
+  font-family: var(--ef-font);
+  -webkit-font-smoothing: antialiased;
+  color: var(--ef-ink);
+}
+
+/* ---------- 画布 ---------- */
+.ef-page {
+  position: relative; overflow: hidden; isolation: isolate;
+  width: 1600px; height: 900px;
+  background: var(--ef-base);
+  margin: 0 auto;
+}
+.ef-page--tall { width: 1200px; height: 1600px; }
+.ef-page--square { width: 1080px; height: 1080px; }
+
+/* 荧光晕：终末地的"光"来自色彩本身，靠径向渐变兜底 */
+.ef-glow {
+  position: absolute; border-radius: 50%; pointer-events: none; z-index: 0;
+  filter: blur(60px); opacity: .30;
+}
+.ef-glow--y { background: var(--ef-yellow); }
+.ef-glow--m { background: var(--ef-magenta); }
+.ef-glow--g { background: var(--ef-mint); }
+
+/* ---------- 字 ---------- */
+.ef-display {
+  font-family: var(--ef-font); font-weight: 700; text-transform: uppercase;
+  font-size: 168px; line-height: .82; letter-spacing: var(--ef-track-tight);
+  color: var(--ef-ink);
+}
+.ef-h1 { font-family: var(--ef-font); font-weight: 700; text-transform: uppercase;
+         font-size: 72px; line-height: .9; letter-spacing: -.03em; }
+.ef-h2 { font-size: 36px; line-height: 1.1; letter-spacing: -.01em; font-weight: 700; }
+.ef-body { font-size: 15px; line-height: 1.7; color: var(--ef-ink-2); }
+.ef-zh { font-family: var(--ef-font-zh); letter-spacing: .06em; }
+
+.ef-label {
+  font-family: var(--ef-font-mono); font-size: 11px; letter-spacing: var(--ef-track-loose);
+  text-transform: uppercase; color: var(--ef-ink-2);
+}
+.ef-num { font-family: var(--ef-font-mono); font-variant-numeric: tabular-nums; letter-spacing: .02em; }
+
+/* ---------- 圆角件（终末地的骨架） ---------- */
+.ef-pill {
+  display: inline-flex; align-items: center; gap: 10px;
+  height: 56px; padding: 0 28px; border-radius: var(--ef-r-pill);
+  border: 1px solid var(--ef-line-2); color: var(--ef-ink);
+  font-size: 15px; letter-spacing: .08em; text-transform: uppercase;
+  transition: background var(--ef-dur) var(--ef-ease), color var(--ef-dur) var(--ef-ease);
+}
+.ef-pill--y { background: var(--ef-yellow); color: #141414; border-color: transparent; font-weight: 700; }
+.ef-pill--ghost { border-color: var(--ef-line); color: var(--ef-ink-2); }
+
+.ef-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 16px; border-radius: var(--ef-r-pill);
+  background: var(--ef-panel-2); border: 1px solid var(--ef-line);
+  font-family: var(--ef-font-mono); font-size: 11px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ef-ink-2);
+}
+.ef-chip--m { color: var(--ef-magenta); border-color: rgba(255, 26, 172, .45); }
+.ef-chip--g { color: var(--ef-mint);   border-color: rgba(0, 255, 162, .45); }
+.ef-chip--y { color: var(--ef-yellow); border-color: rgba(255, 250, 0, .45); }
+
+.ef-panel {
+  background: var(--ef-panel-2);
+  border: 1px solid var(--ef-line);
+  border-radius: var(--ef-r-pill-lg);
+  padding: 32px;
+}
+.ef-card { background: var(--ef-panel); border-radius: var(--ef-r-pill); padding: 24px; }
+
+.ef-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex: none; }
+
+/* 几何碎片：实测自终末地 triangles.svg */
+.ef-tri {
+  position: absolute; z-index: 1; pointer-events: none;
+  background: currentColor; opacity: .9;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+/* 发光：只给荧光色，最多两处 */
+.ef-glowtext { text-shadow: 0 0 28px currentColor; }
+
+/* 扫描条：一块横向荧光色带 */
+.ef-band {
+  height: 6px; border-radius: 3px;
+  background: linear-gradient(90deg, var(--ef-yellow), transparent 70%);
+}
+
+/* ---------- 布局 ---------- */
+.ef-shell { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; }
+.ef-row { display: flex; align-items: center; gap: 16px; }
+.ef-spread { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.ef-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+/* ---------- 可访问性与降级 ---------- */
+:focus-visible { outline: 3px solid var(--ef-yellow); outline-offset: 3px; }
+.ef-pill:focus-visible, .ef-chip:focus-visible { outline-color: var(--ef-mint); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .ef-glow { filter: none; opacity: .22; }
+}

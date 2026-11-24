@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>字体核对 / FONT CHECK</title>
+<link rel="stylesheet" href="../assets/ak.css">
+<link rel="stylesheet" href="../assets/font-face.css">
+</head>
+<body class="ak" data-mode="dark" data-faction="rhodes">
+<main class="ak-page" style="width:1200px;min-height:0;padding:56px">
+  <header style="display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--ak-line)">
+    <span class="ak-label ak-label--bright">FONT CHECK / 字体核对</span>
+    <span class="ak-label">在目标系统上打开本页逐项核对</span>
+  </header>
+
+  <section style="margin-top:36px">
+    <span class="ak-label">01 / 中文标题（显示级，负字距）</span>
+    <div class="ak-zh ak-zh--wide" style="font-size:72px;margin-top:12px">静默协议 · 观测记录</div>
+  </section>
+
+  <section style="margin-top:32px">
+    <span class="ak-label">02 / 中文正文（15px / 1.65）</span>
+    <p class="ak-zh" style="font-size:15px;line-height:1.65;margin-top:10px;width:820px">
+      第四竖井的信号在三日前中断。回收队将在 04:00 进入矿区，全程无线电静默；任何主动呼叫都将被视为已暴露。
+      这一段用来检查标点、字间距与回退：，。；：「」《》——…· 0O1lI 数字 0123456789
+    </p>
+  </section>
+
+  <section style="margin-top:32px">
+    <span class="ak-label">03 / 西文显示（Bahnschrift 系）</span>
+    <div class="ak-mega" style="font-size:112px;margin-top:10px">SILENT PROTOCOL</div>
+  </section>
+
+  <section style="margin-top:32px">
+    <span class="ak-label">04 / 等宽标签与数字（AK Mono）</span>
+    <div style="display:flex;gap:40px;margin-top:10px;align-items:baseline">
+      <span class="ak-label" style="font-family:'AK Mono',var(--ak-font-mono)">REF. AK-ED-07 / CLASSIFIED</span>
+      <span class="ak-num" style="font-family:'AK Mono',var(--ak-font-mono);font-size:34px">0.42 0.91 1225.10.04</span>
+    </div>
+  </section>
+
+  <section style="margin-top:32px">
+    <span class="ak-label">05 / 混排对照（左：系统栈；右：AK Sans）</span>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:10px">
+      <div style="padding:16px;border:1px solid var(--ak-line)">
+        <span class="ak-label">系统默认</span>
+        <div style="font-size:26px;margin-top:8px">灰隼 GREY FALCON 07</div>
+      </div>
+      <div style="padding:16px;border:1px solid var(--ak-line)">
+        <span class="ak-label">AK Sans</span>
+        <div style="font-family:'AK Sans',var(--ak-font-zh);font-size:26px;margin-top:8px">灰隼 GREY FALCON 07</div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="margin-top:36px;padding-top:14px;border-top:1px solid var(--ak-line);display:flex;justify-content:space-between">
+    <span class="ak-label">检查项：字面大小 / 回退是否变形 / 标点位置 / 数字等宽</span>
+    <span class="ak-label">07 / 12</span>
+  </footer>
+</main>
+</body>
+</html>

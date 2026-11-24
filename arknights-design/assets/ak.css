@@ -1,0 +1,446 @@
+/* ============================================================================
+   AK DESIGN SYSTEM · 舟味平面设计底座 v0.1
+   ----------------------------------------------------------------------------
+   用法：<link rel="stylesheet" href="../assets/ak.css">
+         <body class="ak" data-mode="dark">   // 或 data-mode="paper"
+
+   三条不可违反的纪律（违反即不像）：
+   1. 一页只有一套色：黑/白/灰打底，有彩色 ≤ 2 个（1 主强调 + 1 状态）。
+   2. 字距随字号反向变化：越大越紧（-0.05em），越小越松（+0.18em）。
+   3. 圆角恒为 0。所有斜切都是 45° 或 90°（唯一例外：data-surface="lore" 的纸本页允许 2–9px，须显式声明）。
+   ========================================================================== */
+
+/* ---------- 1. RESET ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+img, svg { display: block; max-width: 100%; }
+h1, h2, h3, h4, p, figure, blockquote { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+button { font: inherit; color: inherit; background: none; border: 0; }
+
+/* ---------- 2. TOKENS ---------- */
+:root {
+  /* 色：中性 */
+  --ak-void:        #08090a;   /* 最底：全页背景 */
+  --ak-plate:       #111316;   /* 卡片 / 图版底 */
+  --ak-plate-2:     #191c20;   /* 二级面 */
+  --ak-paper:       #e8e6e1;   /* 纸白：正文与巨字 */
+  --ak-paper-2:     #c9c5bb;   /* 次级文字 */
+  --ak-ink:         #0b0c0e;   /* 纸模式下的墨 */
+  --ak-ink-2:       #4a4d53;
+
+  /* 线：一律半透明，叠在什么底上都成立 */
+  --ak-line:        rgba(232, 230, 225, .16);
+  --ak-line-strong: rgba(232, 230, 225, .38);
+
+  /* 色：状态（每页最多挑 1 主 + 1 状态） */
+  /* —— 阵营配色槽：底色与墨色恒定，只有这两个槽随阵营变 —— */
+  --ak-accent:      #18d1ff;   /* 主强调（默认＝方舟官方口径的青） */
+  --ak-status:      #8fc31f;   /* 状态 / 在线 / 确认 */
+  --ak-alert:       #b0243b;   /* 印章 / 封条 / 危险，面积 < 1%（实测自泰拉记事社 12 次） */
+  --ak-red-hot:     #cd1a37;   /* 朱红亮档 */
+  --ak-radius-soft: 9px;       /* 纸本语域唯一允许的软圆角，见 07-official-surfaces.md */
+
+  /* 兼容别名（母题库内部统一用 signal） */
+  --ak-cyan:        #18d1ff;
+  --ak-signal:      var(--ak-accent);
+  --ak-vermillion:  var(--ak-alert);
+  --ak-lime:        var(--ak-status);
+
+  /* 字的角色 */
+  --ak-font-display: "Bahnschrift", "Oswald", "Archivo Narrow", "Arial Narrow",
+                     "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --ak-font-ui:      "Bahnschrift", "Segoe UI", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --ak-font-zh:      "PingFang SC", "Microsoft YaHei", "Microsoft YaHei UI", "Noto Sans CJK SC", "Source Han Sans SC", "Noto Sans SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+  --ak-font-mono:    "Cascadia Mono", "Consolas", "JetBrains Mono", "IBM Plex Mono", monospace;
+
+  /* 字阶：1.5 倍跳（显示级）+ 1.2 倍跳（文本级） */
+  --ak-fs-meta:    11px;
+  --ak-fs-note:    13px;
+  --ak-fs-body:    15px;
+  --ak-fs-lead:    19px;
+  --ak-fs-h4:      24px;
+  --ak-fs-h3:      32px;
+  --ak-fs-h2:      44px;
+  --ak-fs-h1:      64px;
+  --ak-fs-display: 112px;
+  --ak-fs-mega:    200px;
+
+  /* 行高 */
+  --ak-lh-tight:  .88;
+  --ak-lh-snug:   1.1;
+  --ak-lh-text:   1.65;
+
+  /* 8px 基线空间 */
+  --ak-s1: 4px;   --ak-s2: 8px;   --ak-s3: 16px;  --ak-s4: 24px;
+  --ak-s5: 32px;  --ak-s6: 48px;  --ak-s7: 64px;  --ak-s8: 96px;
+  --ak-s9: 128px; --ak-s10: 160px;--ak-s11: 200px;--ak-s12: 256px;
+
+  /* 网格 */
+  --ak-measure: 1180px;   /* 版心 */
+  --ak-margin:  56px;     /* 页边 */
+  --ak-gutter:  20px;     /* 栏距 */
+  --ak-cols:    12;
+
+  /* 动效：机械，无回弹。官方实测：只有 .3s / .6s，缓动用浏览器默认 ease */
+  --ak-dur-fast: .2s;
+  --ak-dur:      .35s;
+  --ak-dur-slow: .6s;
+  --ak-ease:     cubic-bezier(.2, .7, .2, 1);   /* 起步快、收尾稳，不回弹 */
+}
+
+/* —— 阵营预设：只换配色槽，不换结构。用法 <body class="ak" data-faction="rhine"> —— */
+[data-faction="rhine"] {          /* 莱茵生命：纸白 + 警告橙 */
+  --ak-accent: #ff7b00;
+  --ak-status: #18d1ff;
+}
+[data-faction="hyper"] {          /* 鹰角母品牌：荧光黄 */
+  --ak-accent: #f3ff00;
+  --ak-status: #18d1ff;
+}
+[data-faction="laterano"] {       /* 拉特兰庆典：圣光青 + 冷调蓝灰（连中性色一起降温） */
+  --ak-accent:      #9ad9e8;
+  --ak-status:      #e8e2cf;
+  --ak-void:        #0a0d11;
+  --ak-plate:       #121820;
+  --ak-plate-2:     #1a222b;
+  --ak-paper:       #e6e9ec;
+  --ak-paper-2:     #b9c2ca;
+  --ak-line:        rgba(230, 233, 236, .16);
+  --ak-line-strong: rgba(230, 233, 236, .38);
+}
+[data-faction="terran"] {         /* 泰拉档案：朱红 + 荧光黄（实测自泰拉记事社） */
+  --ak-accent: #b0243b;
+  --ak-status: #fff000;
+}
+
+/* —— 语域（surface）：纸 / 墨 / 圆角政策一起换，见 references/07-official-surfaces.md —— */
+[data-surface="lore"] {           /* 泰拉记事社：纯白纸本 + 朱红印记 + 2–9px 软圆角 */
+  --ak-accent:      #b0243b;
+  --ak-status:      #fff000;
+  --ak-void:        #ffffff;
+  --ak-plate:       #f7f7f7;
+  --ak-plate-2:     #eeeeee;
+  --ak-paper:       #111111;
+  --ak-paper-2:     #696969;
+  --ak-ink:         #111111;
+  --ak-ink-2:       #868686;
+  --ak-line:        rgba(0, 0, 0, .14);
+  --ak-line-strong: rgba(0, 0, 0, .30);
+}
+
+/* 纸模式：同一套结构，换的是纸与墨 */
+[data-mode="paper"] {
+  --ak-void:        #e8e6e1;
+  --ak-plate:       #dcd8cf;
+  --ak-plate-2:     #cfcac0;
+  --ak-paper:       #0b0c0e;
+  --ak-paper-2:     #4a4d53;
+  --ak-line:        rgba(11, 12, 14, .16);
+  --ak-line-strong: rgba(11, 12, 14, .40);
+}
+
+/* ---------- 3. 页面画布 ---------- */
+body.ak {
+  background: #3a3c40;               /* 画布外的桌面色，导出时去掉 */
+  font-family: var(--ak-font-ui);
+  -webkit-font-smoothing: antialiased;
+}
+
+.ak-page {
+  position: relative;
+  overflow: hidden;
+  background: var(--ak-void);
+  color: var(--ak-paper);
+  width: 1200px;
+  min-height: 1600px;
+  padding: var(--ak-margin);
+  margin: 0 auto;
+  isolation: isolate;
+}
+/* 尺寸预设 */
+.ak-page--poster  { width: 1200px; height: 1600px; }
+.ak-page--slide   { width: 1600px; height: 900px; min-height: 0; }
+.ak-page--a4      { width: 794px;  height: 1123px; min-height: 0; }   /* 96dpi 下的 A4 */
+.ak-page--card    { width: 750px;  height: 1000px; min-height: 0; }
+.ak-page--square  { width: 1080px; height: 1080px; min-height: 0; }
+
+/* 画布纹理：极轻的纸/胶片噪点，靠 SVG 滤镜表现，不依赖图片 */
+.ak-page::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  z-index: 90;
+  opacity: .05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* ---------- 4. 排版工具 ---------- */
+.ak-display,
+.ak-mega,
+.ak-h1, .ak-h2, .ak-h3 {
+  font-family: var(--ak-font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: var(--ak-lh-tight);
+}
+.ak-mega    { font-size: var(--ak-fs-mega);    letter-spacing: -.055em; }
+.ak-display { font-size: var(--ak-fs-display); letter-spacing: -.05em; line-height: .82; }
+.ak-h1      { font-size: var(--ak-fs-h1);      letter-spacing: -.035em; line-height: .9; }
+.ak-h2      { font-size: var(--ak-fs-h2);      letter-spacing: -.025em; line-height: .95; }
+.ak-h3      { font-size: var(--ak-fs-h3);      letter-spacing: -.015em; line-height: 1; }
+
+.ak-lead  { font-size: var(--ak-fs-lead); line-height: 1.5; letter-spacing: -.01em; }
+.ak-body  { font-size: var(--ak-fs-body); line-height: var(--ak-lh-text); }
+.ak-note  { font-size: var(--ak-fs-note); line-height: 1.55; color: var(--ak-paper-2); }
+
+/* 中文：字距放宽一点，字重降一点，避免和压缩西文打架 */
+.ak-zh {
+  font-family: var(--ak-font-zh);
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+.ak-zh--wide { letter-spacing: .16em; }
+
+/* 标签：等宽、全大写、宽字距 —— 舟味的骨架很大程度靠这一层 */
+.ak-label {
+  font-family: var(--ak-font-mono);
+  font-size: var(--ak-fs-meta);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ak-paper-2);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ak-s2);
+}
+.ak-label--bright { color: var(--ak-paper); }
+.ak-label--hard   { letter-spacing: .3em; }
+
+/* 描边字：实心 + 空心并置是核心对比手法 */
+.ak-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--ak-paper);
+}
+.ak-outline--thin { -webkit-text-stroke-width: 1px; }
+.ak-outline--accent { -webkit-text-stroke: 1.5px var(--ak-signal); }
+
+/* 数字：等宽表格数字，编号系统的基础 */
+.ak-num {
+  font-family: var(--ak-font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .02em;
+}
+
+/* ---------- 5. 线 / 框 / 标记 ---------- */
+.ak-rule { height: 1px; background: var(--ak-line); border: 0; }
+.ak-rule--strong { background: var(--ak-line-strong); }
+.ak-rule--accent { background: var(--ak-signal); height: 2px; }
+.ak-vrule { width: 1px; background: var(--ak-line); align-self: stretch; }
+
+/* 纸本语域专用软圆角：只在 [data-surface="lore"] 里出现，且 ≤ 9px。
+   游戏官网语境下不要用（那边全是 0 / 4px 硬边）。 */
+.ak-radius-soft { border-radius: var(--ak-radius-soft); }
+
+/* 斜切角容器：切掉右上与左下，制造"被机器裁过"的感觉 */
+.ak-chamfer {
+  --c: 18px;
+  clip-path: polygon(0 0, calc(100% - var(--c)) 0, 100% var(--c),
+                     100% 100%, var(--c) 100%, 0 calc(100% - var(--c)));
+}
+/* 四角内折角标：控制台面板感 */
+.ak-notch {
+  --n: 14px;
+  --l: 1px;
+  background:
+    linear-gradient(var(--ak-line-strong), var(--ak-line-strong)) top left / var(--n) var(--l) no-repeat,
+    linear-gradient(var(--ak-line-strong), var(--ak-line-strong)) top left / var(--l) var(--n) no-repeat,
+    linear-gradient(var(--ak-line-strong), var(--ak-line-strong)) top right / var(--n) var(--l) no-repeat,
+    linear-gradient(var(--ak-line-strong), var(--ak-line-strong)) top right / var(--l) var(--n) no-repeat,
+    linear-gradient(var(--ak-line-strong), var(--ak-line-strong)) bottom left / var(--n) var(--l) no-repeat,
+    linear-gradient(var(--ak-line-strong), var(--ak-line-strong)) bottom left / var(--l) var(--n) no-repeat,
+    linear-gradient(var(--ak-line-strong), var(--ak-line-strong)) bottom right / var(--n) var(--l) no-repeat,
+    linear-gradient(var(--ak-line-strong), var(--ak-line-strong)) bottom right / var(--l) var(--n) no-repeat;
+}
+
+/* 裁切标记：四角十字，印刷件 */
+.ak-crop { position: absolute; inset: var(--ak-s4); pointer-events: none; z-index: 95; }
+.ak-crop::before, .ak-crop::after {
+  content: ""; position: absolute; background: var(--ak-line-strong);
+}
+.ak-crop::before { left: 0; right: 0; height: 1px; top: 0; }
+.ak-crop::after  { left: 0; right: 0; height: 1px; bottom: 0; }
+
+/* 套准靶 / 十字准星 */
+.ak-crosshair {
+  width: 22px; height: 22px; position: relative; flex: none;
+}
+.ak-crosshair::before, .ak-crosshair::after {
+  content: ""; position: absolute; background: var(--ak-line-strong);
+}
+.ak-crosshair::before { left: 50%; top: 0; bottom: 0; width: 1px; }
+.ak-crosshair::after  { top: 50%; left: 0; right: 0; height: 1px; }
+
+/* 刻度尺：测量感 */
+.ak-ticks {
+  background-image: repeating-linear-gradient(90deg,
+      var(--ak-line-strong) 0 1px, transparent 1px 12px);
+  height: 8px;
+}
+.ak-ticks--v {
+  width: 8px; height: 100%;
+  background-image: repeating-linear-gradient(0deg,
+      var(--ak-line-strong) 0 1px, transparent 1px 12px);
+}
+
+/* 危险斜纹（45°）：永远窄、永远只出现在边缘或角上 */
+.ak-chevron {
+  background-image: repeating-linear-gradient(45deg,
+      var(--ak-signal) 0 8px, transparent 8px 16px);
+  height: 10px;
+}
+
+/* 半调网点：45° 网屏，是"打印品"而非"电子渐变"的关键 */
+.ak-halftone {
+  --dot: 5px;
+  --ink: var(--ak-paper);
+  background-image: radial-gradient(circle at center, var(--ink) 34%, transparent 36%);
+  background-size: var(--dot) var(--dot);
+  transform: rotate(0deg);
+}
+.ak-halftone--45 { transform: rotate(-45deg) scale(1.45); }
+.ak-halftone--fade {
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 78%);
+          mask-image: linear-gradient(180deg, #000 0%, transparent 78%);
+}
+
+/* 扫描线：模拟终端 / 显像管 */
+.ak-scan {
+  background-image: repeating-linear-gradient(0deg,
+      rgba(0, 0, 0, .28) 0 1px, transparent 1px 3px);
+}
+
+/* 条码：纯 CSS，两道不同步频的竖线叠出伪随机 */
+.ak-barcode {
+  height: 34px;
+  background-image:
+    repeating-linear-gradient(90deg, var(--ak-paper) 0 2px, transparent 2px 5px),
+    repeating-linear-gradient(90deg, var(--ak-paper) 0 1px, transparent 1px 9px);
+  opacity: .9;
+}
+
+/* 可见网格（自查用，Ctrl+G 常驻切换） */
+.ak-grid-overlay {
+  position: absolute; inset: var(--ak-margin);
+  pointer-events: none; z-index: 80; display: none;
+  background-image: repeating-linear-gradient(90deg,
+      rgba(24, 209, 255, .28) 0 1px, transparent 1px calc((100% + var(--ak-gutter)) / 12));
+}
+.ak-grid-overlay.on { display: block; }
+
+/* ---------- 6. 图版 / 影像处理 ---------- */
+/* 无图时也能成立的几何图版：叠色块 + 网点 + 扫描线 */
+.ak-plate {
+  position: relative;
+  background: var(--ak-plate);
+  overflow: hidden;
+}
+.ak-plate::before {           /* 网点层 */
+  content: ""; position: absolute; inset: -20%;
+  background-image: radial-gradient(circle at center, var(--ak-paper) 30%, transparent 32%);
+  background-size: 6px 6px;
+  opacity: .10;
+  transform: rotate(-45deg);
+}
+.ak-plate::after {            /* 角斜纹 */
+  content: ""; position: absolute; right: 0; bottom: 0;
+  width: 96px; height: 96px;
+  background-image: repeating-linear-gradient(45deg,
+      var(--ak-signal) 0 6px, transparent 6px 12px);
+  opacity: .8;
+}
+
+/* 真实照片的双色调处理：去色 → 提对比 → 叠色 */
+.ak-duotone { position: relative; overflow: hidden; background: var(--ak-void); }
+.ak-duotone > img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: grayscale(1) contrast(1.35) brightness(.95);
+  mix-blend-mode: luminosity;
+}
+.ak-duotone::after {
+  content: ""; position: absolute; inset: 0;
+  background: var(--ak-signal);
+  mix-blend-mode: color;
+  opacity: .55;
+  pointer-events: none;
+}
+.ak-duotone--cyan::after { background: var(--ak-cyan); opacity: .45; }
+
+/* ---------- 7. 小件 ---------- */
+/* 印章：旋转、描边、字距极大 */
+.ak-stamp {
+  display: inline-block;
+  border: 2px solid var(--ak-vermillion);
+  color: var(--ak-vermillion);
+  font-family: var(--ak-font-mono);
+  font-size: var(--ak-fs-meta);
+  letter-spacing: .3em;
+  padding: 6px 10px 6px 14px;
+  transform: rotate(-6deg);
+  opacity: .85;
+}
+
+/* 状态点：唯一允许的圆 */
+.ak-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; }
+.ak-dot--pulse { animation: ak-pulse 1.8s var(--ak-ease) infinite; }
+@keyframes ak-pulse { 0%,100% { opacity: 1 } 50% { opacity: .25 } }
+
+/* 引线标注：向一侧伸出的括号标签 */
+.ak-callout {
+  position: relative;
+  padding-left: var(--ak-s4);
+  border-left: 1px solid var(--ak-signal);
+}
+
+/* 数据条目：上标签 / 下值，中间细线 */
+.ak-field { display: flex; flex-direction: column; gap: var(--ak-s2); }
+.ak-field__k { font-family: var(--ak-font-mono); font-size: 10px; letter-spacing: .2em; color: var(--ak-paper-2); text-transform: uppercase; }
+.ak-field__v { font-size: var(--ak-fs-lead); letter-spacing: .02em; }
+
+/* ---------- 8. 栅格与版式骨架 ---------- */
+.ak-shell { display: flex; flex-direction: column; height: 100%; gap: var(--ak-s3); }
+.ak-cols  { display: grid; gap: var(--ak-gutter); grid-template-columns: repeat(12, 1fr); }
+.ak-row   { display: flex; align-items: center; gap: var(--ak-s3); }
+.ak-spread { display: flex; align-items: center; justify-content: space-between; gap: var(--ak-s3); }
+.ak-stack  { display: flex; flex-direction: column; }
+
+/* 竖排文字：中文/日文竖排，或旋转的英文标签 */
+.ak-vertical { writing-mode: vertical-rl; text-orientation: mixed; }
+.ak-rot90    { transform: rotate(90deg); transform-origin: left top; }
+
+/* 出血巨字：让字越过版心，制造被裁切的张力 */
+.ak-bleed-right { margin-right: calc(var(--ak-margin) * -1); white-space: nowrap; }
+.ak-bleed-left  { margin-left:  calc(var(--ak-margin) * -1); white-space: nowrap; }
+
+/* ---------- 9. 打印 ---------- */
+@media print {
+  body.ak { background: #fff; }
+  .ak-page { margin: 0; box-shadow: none; page-break-after: always; }
+  .ak-page::after { display: none; }
+}
+@page { size: 1200px 1600px; margin: 0; }
+
+/* ---------- 10. 可访问性与降级 ---------- */
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--ak-accent);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .ak-dot--pulse { animation: none; opacity: 1; }
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>PROTOCOL ZERO — 终末地风格 KV 模板</title>
+<link rel="stylesheet" href="../assets/ef.css">
+<style>
+  .hero { padding: 56px 64px; }
+  .nav { display: flex; align-items: center; gap: 10px; }
+  .brand { display: flex; align-items: center; gap: 12px; margin-right: 24px; }
+  .brand__mark { width: 26px; height: 26px; background: var(--ef-yellow); clip-path: polygon(0 0, 100% 0, 0 100%); }
+  .brand__t { font-size: 15px; font-weight: 700; letter-spacing: .34em; text-transform: uppercase; }
+
+  .stage { flex: 1; display: flex; align-items: center; gap: 48px; padding-top: 10px; }
+  .copy { width: 760px; flex: none; }
+  .kicker { display: flex; align-items: center; gap: 12px; margin-bottom: 26px; }
+  .kicker__k { font-family: var(--ef-font-mono); font-size: 11px; letter-spacing: .3em;
+               text-transform: uppercase; color: var(--ef-yellow); }
+  .title { font-size: 172px; }
+  .title__out { color: transparent; -webkit-text-stroke: 2px var(--ef-yellow); }
+  .sub { margin-top: 22px; display: flex; align-items: center; gap: 18px; }
+  .sub__zh { font-size: 30px; letter-spacing: .1em; }
+  .desc { margin-top: 22px; width: 520px; }
+
+  .stack { display: flex; gap: 12px; margin-top: 34px; }
+
+  .side { flex: 1; display: flex; flex-direction: column; gap: 16px; align-items: stretch; }
+  .kv-card { border-radius: var(--ef-r-pill-lg); background: var(--ef-panel-2);
+             border: 1px solid var(--ef-line); padding: 28px; }
+  .kv-card__top { display: flex; justify-content: space-between; align-items: center; }
+  .meter { display: flex; align-items: flex-end; gap: 6px; height: 92px; margin-top: 22px; }
+  .meter i { flex: 1; background: var(--ef-panel); border-radius: 6px 6px 0 0; display: block; }
+  .meter i.on { background: var(--ef-yellow); }
+  .meter i.hot { background: var(--ef-magenta); }
+  .kv-row { display: flex; justify-content: space-between; align-items: baseline;
+            padding: 14px 0; border-bottom: 1px solid var(--ef-line); }
+  .kv-row:last-child { border-bottom: 0; }
+  .kv-row__k { font-family: var(--ef-font-mono); font-size: 10px; letter-spacing: .2em;
+               text-transform: uppercase; color: var(--ef-ink-2); }
+  .kv-row__v { font-size: 17px; letter-spacing: .02em; }
+
+  .foot { display: flex; align-items: center; justify-content: space-between;
+          padding-top: 22px; border-top: 1px solid var(--ef-line); }
+  .foot__zh { font-size: 12px; letter-spacing: .22em; color: var(--ef-ink-2); }
+</style>
+</head>
+<body class="ef">
+
+<main class="ef-page">
+  <div class="ef-glow ef-glow--y" style="width:620px;height:620px;left:-160px;top:-220px"></div>
+  <div class="ef-glow ef-glow--m" style="width:420px;height:420px;right:-120px;bottom:-160px;opacity:.22"></div>
+  <div class="ef-tri" style="color:var(--ef-yellow);width:120px;height:104px;right:520px;top:96px;opacity:.9"></div>
+  <div class="ef-tri" style="color:var(--ef-magenta);width:64px;height:56px;right:392px;top:212px;opacity:.75"></div>
+  <div class="ef-tri" style="color:var(--ef-mint);width:40px;height:34px;right:474px;bottom:150px;opacity:.8"></div>
+
+  <div class="ef-shell hero">
+    <header class="ef-spread">
+      <div class="ef-row">
+        <div class="brand">
+          <span class="brand__mark"></span>
+          <span class="brand__t">Endfield</span>
+        </div>
+        <nav class="nav">
+          <span class="ef-pill ef-pill--ghost" style="height:44px;padding:0 20px;font-size:12px">Overview</span>
+          <span class="ef-pill ef-pill--ghost" style="height:44px;padding:0 20px;font-size:12px">Protocol</span>
+          <span class="ef-pill ef-pill--ghost" style="height:44px;padding:0 20px;font-size:12px">Archive</span>
+        </nav>
+      </div>
+      <div class="ef-row" style="gap:14px">
+        <span class="ef-chip ef-chip--g"><span class="ef-dot"></span>服务器在线</span>
+        <span class="ef-label">v1.0.4</span>
+      </div>
+    </header>
+
+    <section class="stage">
+      <div class="copy">
+        <div class="kicker">
+          <span class="ef-band" style="width:44px"></span>
+          <span class="kicker__k">Protocol Zero / 第一阶段</span>
+        </div>
+        <h1 class="ef-display title">PROTOCOL<br><span class="title__out">ZERO</span></h1>
+        <div class="sub">
+          <span class="ef-pill ef-pill--y">开始同步</span>
+          <span class="sub__zh ef-zh">零号协议 · 终末地</span>
+        </div>
+        <p class="desc ef-body">旧世界的地表被源石残骸覆盖。协议启动后，你将带领一支勘探队沿铁路南下，在废墟之间重新接通信号——每一段铁轨都算作一次前进。</p>
+        <div class="stack">
+          <span class="ef-chip ef-chip--y">SECTOR 04</span>
+          <span class="ef-chip">12 UNITS</span>
+          <span class="ef-chip ef-chip--m">危险度 3</span>
+          <span class="ef-chip">ETA 04:20</span>
+        </div>
+      </div>
+
+      <aside class="side">
+        <div class="kv-card">
+          <div class="kv-card__top">
+            <span class="ef-label">Signal / 信号强度</span>
+            <span class="ef-chip ef-chip--m"><span class="ef-dot"></span>波动</span>
+          </div>
+          <div class="meter">
+            <i style="height:32%"></i><i style="height:48%"></i><i class="on" style="height:64%"></i>
+            <i style="height:52%"></i><i class="hot" style="height:78%"></i><i style="height:40%"></i>
+            <i style="height:28%"></i>
+          </div>
+        </div>
+        <div class="kv-card" style="padding:8px 28px">
+          <div class="kv-row"><span class="kv-row__k">Sector</span><span class="kv-row__v ef-num">S-04 / 废弃编组站</span></div>
+          <div class="kv-row"><span class="kv-row__k">Progress</span><span class="kv-row__v ef-num" style="color:var(--ef-yellow)">68%</span></div>
+          <div class="kv-row"><span class="kv-row__k">Status</span><span class="kv-row__v" style="color:var(--ef-mint)">SYNCED</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="foot">
+      <div class="ef-row" style="gap:20px">
+        <span class="ef-tri" style="position:static;color:var(--ef-yellow);width:12px;height:10px"></span>
+        <span class="foot__zh ef-zh">终末地 / 零号协议</span>
+        <span class="ef-label">Tokyo · 2025</span>
+      </div>
+      <div class="ef-row" style="gap:18px">
+        <span class="ef-label">01 / 06</span>
+        <span class="ef-pill ef-pill--ghost" style="height:40px;padding:0 18px;font-size:11px">下一页</span>
+      </div>
+    </footer>
+  </div>
+</main>
+
+</body>
+</html>

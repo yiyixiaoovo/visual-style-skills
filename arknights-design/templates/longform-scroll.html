@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>滚动长图 / LONGFORM SCROLL — R7-S</title>
+<link rel="stylesheet" href="../assets/ak.css">
+<style>
+  .scroll-page { width: 1200px; margin: 0 auto; min-height: 0; padding: 0; }
+  .topbar { position: sticky; top: 0; z-index: 20; height: 72px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 56px; background: color-mix(in srgb, var(--ak-void) 88%, transparent);
+            backdrop-filter: blur(8px); border-bottom: 1px solid var(--ak-line); }
+  .progress { position: fixed; left: 24px; top: 50%; transform: translateY(-50%);
+              z-index: 20; display: flex; flex-direction: column; gap: 14px; }
+  .dot { width: 8px; height: 8px; border: 1px solid var(--ak-line-strong);
+         background: transparent; transition: background .3s var(--ak-ease); }
+  .dot.on { background: var(--ak-accent); border-color: var(--ak-accent); }
+  .dot__k { font-family: var(--ak-font-mono); font-size: 9px; letter-spacing: .2em;
+            color: var(--ak-paper-2); }
+  .sec { min-height: 900px; padding: 96px 56px; display: flex; flex-direction: column;
+         justify-content: center; border-bottom: 1px solid var(--ak-line); position: relative; }
+  .sec__no { font-family: var(--ak-font-display); font-weight: 700; font-size: 260px;
+             line-height: .8; letter-spacing: -.06em; }
+  .sec__h { font-size: 88px; line-height: .9; letter-spacing: -.04em; margin-top: 8px; }
+  .sec__zh { margin-top: 16px; font-size: 30px; letter-spacing: .16em; }
+  .rows { display: flex; flex-direction: column; margin-top: 34px; }
+  .row { display: grid; grid-template-columns: 110px 1fr 160px; gap: 24px; align-items: baseline;
+         padding: 22px 0; border-bottom: 1px solid var(--ak-line); }
+  .plate { height: 320px; margin-top: 30px; position: relative; background: var(--ak-plate); overflow: hidden; }
+  .plate::before { content: ""; position: absolute; inset: -20%;
+    background-image: radial-gradient(circle at center, var(--ak-paper) 30%, transparent 32%);
+    background-size: 6px 6px; opacity: .10; transform: rotate(-45deg); }
+  .quote { font-size: 44px; line-height: 1.45; letter-spacing: .04em; margin-top: 32px; width: 820px; }
+  @media (max-width: 900px) {
+    .scroll-page { width: 100%; }
+    .topbar { padding: 0 20px; }
+    .sec { min-height: 72vh; padding: 64px 24px; }
+    .sec__no { font-size: 132px; letter-spacing: -.06em; }
+    .sec__h { font-size: 44px; }
+    .sec__zh { font-size: 22px; }
+    .quote { width: auto; font-size: 28px; }
+    .progress { display: none; }
+    .row { grid-template-columns: 64px 1fr 84px; gap: 12px; }
+    .plate { height: 200px; }
+  }
+</style></head>
+<body class="ak" data-mode="dark" data-faction="rhodes">
+<header class="topbar">
+  <div class="ak-row" style="gap:12px"><div class="ak-crosshair"></div>
+    <span class="ak-label ak-label--bright">ARCHIVE / 滚动长图</span></div>
+  <span class="ak-label">REF. AK-LF-07 · 进度 <span class="ak-num" id="pct">00%</span></span>
+</header>
+
+<nav class="progress" aria-label="章节进度">
+  <div class="dot on"></div><span class="dot__k">01</span>
+  <div class="dot"></div><span class="dot__k">02</span>
+  <div class="dot"></div><span class="dot__k">03</span>
+  <div class="dot"></div><span class="dot__k">04</span>
+</nav>
+
+<main class="ak-page scroll-page">
+  <section class="sec" id="s1" data-i="0">
+    <span class="ak-label ak-label--bright ak-label--hard">SECTION 01 / 观测</span>
+    <div class="sec__no">01</div>
+    <div class="sec__h ak-mega">OBSERVATION</div>
+    <div class="sec__zh ak-zh ak-zh--wide">观测记录 · 第三纪</div>
+  </section>
+
+  <section class="sec" id="s2" data-i="1">
+    <span class="ak-label ak-label--bright ak-label--hard">SECTION 02 / 采样</span>
+    <div class="rows">
+      <div class="row"><span class="ak-label">A-01</span><span class="ak-zh" style="font-size:22px">北侧通风井</span><span class="ak-num" style="text-align:right">0.42</span></div>
+      <div class="row"><span class="ak-label">A-02</span><span class="ak-zh" style="font-size:22px">旧升降机平台</span><span class="ak-num" style="text-align:right">0.38</span></div>
+      <div class="row"><span class="ak-label">B-03</span><span class="ak-zh" style="font-size:22px">第三竖井底部</span><span class="ak-num" style="text-align:right;color:var(--ak-accent)">0.91</span></div>
+      <div class="row"><span class="ak-label">B-04</span><span class="ak-zh" style="font-size:22px">东侧排水廊道</span><span class="ak-num" style="text-align:right">0.55</span></div>
+    </div>
+  </section>
+
+  <section class="sec" id="s3" data-i="2">
+    <span class="ak-label ak-label--bright ak-label--hard">SECTION 03 / 剖面</span>
+    <div class="plate ak-plate">
+      <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 1088 320" preserveAspectRatio="none" aria-hidden="true">
+        <g stroke="var(--ak-paper)" stroke-opacity=".2" stroke-width="1">
+          <line x1="0" y1="64" x2="1088" y2="64"/><line x1="0" y1="128" x2="1088" y2="128"/>
+          <line x1="0" y1="192" x2="1088" y2="192"/><line x1="0" y1="256" x2="1088" y2="256"/>
+        </g>
+        <line x1="0" y1="160" x2="1088" y2="160" stroke="var(--ak-accent)" stroke-width="2"/>
+      </svg>
+    </div>
+    <span class="ak-label" style="margin-top:10px">FIG. 07 — 剖面 C-05 · 1:500</span>
+  </section>
+
+  <section class="sec" id="s4" data-i="3">
+    <span class="ak-label ak-label--bright ak-label--hard">SECTION 04 / 结语</span>
+    <div class="quote ak-zh">凡与本卷冲突的记载，以本卷为准；凡自相矛盾之处，保留原文，不作校改。</div>
+    <div class="ak-spread" style="margin-top:56px">
+      <span class="ak-label ak-label--hard">RHODES ISLAND · ARCHIVE</span>
+      <span class="ak-num" style="font-size:9px;letter-spacing:.3em;color:var(--ak-paper-2)">AK·LF·07·2501·A</span>
+      <span class="ak-label">07 / 12</span>
+    </div>
+  </section>
+</main>
+
+<script>
+  const secs = [...document.querySelectorAll('.sec')];
+  const dots = [...document.querySelectorAll('.dot')];
+  const pct  = document.getElementById('pct');
+  const io = new IntersectionObserver((es) => {
+    es.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const i = +e.target.dataset.i;
+      dots.forEach((d, k) => d.classList.toggle('on', k === i));
+    });
+  }, { threshold: 0.45 });
+  secs.forEach((s) => io.observe(s));
+  addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - innerHeight;
+    pct.textContent = String(Math.min(99, Math.round((scrollY / h) * 100))).padStart(2, '0') + '%';
+  }, { passive: true });
+  // 深链：定位到指定章节（供无头浏览器与分享链接使用）
+  if (location.hash) {
+    const el = document.querySelector(location.hash);
+    if (el) setTimeout(() => window.scrollTo(0, el.offsetTop - 72), 80);
+  }
+</script>
+</body>
+</html>

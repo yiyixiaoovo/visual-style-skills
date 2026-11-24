@@ -1,0 +1,45 @@
+/* ============================================================================
+   跨平台中文字族兜底
+   用法：在 ak.css 之后引入 <link rel="stylesheet" href="../assets/font-face.css">
+   作用：把 "AK Sans" 映射到当前系统上最好的那一个中文字体，模板不用改。
+   注意：本文件不内嵌任何字体文件——官方字体（Source Han Sans 除外）不可分发。
+   ========================================================================== */
+
+@font-face {
+  font-family: "AK Sans";
+  src: local("PingFang SC"),          /* macOS */
+       local("Hiragino Sans GB"),     /* macOS 旧版 */
+       local("Microsoft YaHei UI"),   /* Windows 11 */
+       local("Microsoft YaHei"),      /* Windows */
+       local("Source Han Sans SC"),   /* 思源黑体 */
+       local("Noto Sans CJK SC"),     /* Linux */
+       local("Noto Sans SC"),
+       local("WenQuanYi Micro Hei");  /* Linux 兜底 */
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AK Sans";
+  src: local("PingFang SC"), local("Microsoft YaHei"), local("Noto Sans CJK SC");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+/* 数字/西文的等宽兜底：不同系统上字号观感差异最大的一类 */
+@font-face {
+  font-family: "AK Mono";
+  src: local("Cascadia Mono"), local("Consolas"), local("SF Mono"),
+       local("JetBrains Mono"), local("IBM Plex Mono"), local("Menlo"),
+       local("DejaVu Sans Mono");
+  font-display: swap;
+}
+
+/*
+  若项目允许内嵌（仅限交付件、且字体许可允许）：
+  1) 子集化： pyftsubset NotoSansSC-Regular.otf --text-file=chars.txt \
+       --flavor=woff2 --output-file=ak-zh.woff2
+  2) 内嵌：
+     @font-face{ font-family:"AK Sans"; src:url("data:font/woff2;base64,...") format("woff2"); }
+  中文全量子集约 2–4MB；只子集实际用到的 300–800 字，通常 60–140KB。
+*/

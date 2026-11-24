@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>众生行记 / THE MASSES' TRAVELS — 六周年庆典主视觉</title>
+<link rel="stylesheet" href="../assets/ak.css">
+<style>
+  /* 本页：拉特兰庆典。冷调蓝灰底 + 圣光青，几何制图 + 白鸽队列 + 字符解构 */
+  .ak-page {
+    padding: 0;
+    background:
+      radial-gradient(1200px 900px at 72% 26%, rgba(120,150,175,.16), transparent 62%),
+      var(--ak-void);
+  }
+
+  .p-head { position: absolute; left: 56px; right: 56px; top: 42px; z-index: 8;
+            display: flex; align-items: center; justify-content: space-between; }
+  .p-rule { position: absolute; left: 56px; right: 56px; top: 78px; z-index: 8; }
+
+  .eyebrow { position: absolute; left: 56px; top: 132px; display: flex; align-items: center; gap: 12px; z-index: 8; }
+  .sq { width: 10px; height: 10px; background: var(--ak-accent); flex: none; }
+
+  /* —— 字符解构：同一串字母切三层，各自错位 —— */
+  .title-block { position: absolute; left: 56px; top: 168px; z-index: 7; }
+  .t-small {
+    font-size: 44px; line-height: 1; letter-spacing: .3em; text-transform: uppercase;
+    color: transparent; -webkit-text-stroke: 1px var(--ak-paper);
+  }
+  .glitch { position: relative; display: block; margin-top: 14px;
+            font-size: 200px; line-height: .84; letter-spacing: -.045em; }
+  .glitch__base { color: var(--ak-paper); }
+  .glitch__s { position: absolute; left: 0; top: 0; width: 100%; display: block; }
+  .glitch__s1 { clip-path: inset(0 0 63% 0); transform: translateX(-7px); }
+  .glitch__s2 { clip-path: inset(37% 0 37% 0); color: transparent;
+                -webkit-text-stroke: 1.5px var(--ak-paper); transform: translateX(9px); }
+  .glitch__s3 { clip-path: inset(68% 0 0 0); transform: translateX(-11px); }
+
+  .zh { position: absolute; left: 56px; top: 418px; z-index: 7;
+        display: flex; align-items: baseline; gap: 22px; }
+  .zh__t { font-size: 66px; line-height: 1; letter-spacing: .18em; }
+  .zh__e { font-family: var(--ak-font-mono); font-size: 11px; letter-spacing: .34em;
+           color: var(--ak-paper-2); }
+  .zh-rule { position: absolute; left: 56px; top: 512px; width: 300px; height: 2px;
+             background: var(--ak-accent); z-index: 7; }
+
+  /* —— 制图区 —— */
+  .diagram { position: absolute; left: 0; top: 0; width: 1200px; height: 1600px; z-index: 2; }
+  .doves { position: absolute; left: 0; top: 0; width: 1200px; height: 1600px; z-index: 1; }
+
+  .cap { position: absolute; left: 56px; bottom: 178px; z-index: 7;
+         display: flex; align-items: center; gap: 14px; }
+
+  .p-foot { position: absolute; left: 56px; right: 56px; bottom: 44px; z-index: 8;
+            display: flex; align-items: flex-end; justify-content: space-between;
+            padding-top: 16px; border-top: 1px solid var(--ak-line); }
+  .barcode-wrap { width: 200px; display: flex; flex-direction: column; gap: 6px; }
+  .barcode-wrap .ak-num { font-size: 9px; letter-spacing: .3em; color: var(--ak-paper-2); }
+
+  /* 右侧竖排轨道 */
+  .rail { position: absolute; right: 22px; top: 200px; bottom: 260px; width: 16px; z-index: 7;
+          display: flex; flex-direction: column; align-items: center; gap: 18px; }
+  .rail span { writing-mode: vertical-rl; font-family: var(--ak-font-mono); font-size: 9px;
+               letter-spacing: .4em; color: var(--ak-paper-2); text-transform: uppercase; }
+  .rail i { flex: 1; width: 1px; background: var(--ak-line); display: block; }
+</style>
+</head>
+<body class="ak" data-mode="dark" data-faction="laterano">
+
+<main class="ak-page ak-page--poster">
+  <div class="ak-crop"></div>
+
+  <header class="p-head">
+    <div class="ak-row" style="gap:12px">
+      <div class="ak-crosshair"></div>
+      <span class="ak-label ak-label--bright">LATERANO · SIDE STORY 90</span>
+    </div>
+    <span class="ak-label">6TH ANNIVERSARY &nbsp;/&nbsp; <span class="ak-num">2025.05.01</span></span>
+  </header>
+  <hr class="ak-rule p-rule">
+
+  <div class="eyebrow">
+    <span class="sq"></span>
+    <span class="ak-label ak-label--bright ak-label--hard">THE PROCESSION / 朝圣者队列</span>
+  </div>
+
+  <div class="title-block">
+    <span class="t-small">The Masses&rsquo;</span>
+    <span class="glitch">
+      <span class="glitch__base">TRAVELS</span>
+      <span class="glitch__s glitch__s1" aria-hidden="true">TRAVELS</span>
+      <span class="glitch__s glitch__s2" aria-hidden="true">TRAVELS</span>
+      <span class="glitch__s glitch__s3" aria-hidden="true">TRAVELS</span>
+    </span>
+  </div>
+
+  <div class="zh">
+    <span class="zh__t ak-zh ak-zh--wide">众生行记</span>
+    <span class="zh__e">SIDE STORY · 90</span>
+  </div>
+  <div class="zh-rule"></div>
+
+  <div class="rail">
+    <span>ALL BEINGS · UNDER ONE LIGHT</span>
+    <i></i>
+    <span>DO NOT REPRODUCE</span>
+  </div>
+
+  <!-- 维特鲁威制图：圆 + 方 + 骨架 + 坐标字母 -->
+  <svg class="diagram" viewBox="0 0 1200 1600" aria-hidden="true">
+    <defs>
+      <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+        <stop offset="0" stop-color="var(--ak-accent)" stop-opacity=".16"/>
+        <stop offset=".55" stop-color="var(--ak-accent)" stop-opacity=".04"/>
+        <stop offset="1" stop-color="var(--ak-accent)" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="var(--ak-paper)" stop-opacity=".14"/>
+        <stop offset="1" stop-color="var(--ak-paper)" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+
+    <!-- 圣光光柱 -->
+    <g transform="rotate(18 860 300)">
+      <rect x="700" y="-200" width="150" height="1500" fill="url(#beam)" opacity=".55"/>
+      <rect x="880" y="-200" width="46" height="1500" fill="url(#beam)" opacity=".35"/>
+    </g>
+
+    <!-- 刻度环：dasharray 在圆上刻出放射状短刻度 -->
+    <g stroke="var(--ak-paper)" fill="none">
+      <circle cx="600" cy="900" r="322" stroke-opacity=".26" stroke-width="10" stroke-dasharray="1 26"/>
+      <circle cx="600" cy="900" r="338" stroke-opacity=".12" stroke-width="6"  stroke-dasharray="1 52"/>
+    </g>
+
+    <!-- 光晕 -->
+    <circle cx="600" cy="900" r="330" fill="url(#halo)"/>
+
+    <!-- 圆与方：维特鲁威的骨架 -->
+    <g stroke="var(--ak-paper)" fill="none">
+      <circle cx="600" cy="900" r="300" stroke-opacity=".30" stroke-width="1"/>
+      <circle cx="600" cy="900" r="252" stroke-opacity=".10" stroke-width="1"/>
+      <rect x="310" y="610" width="580" height="580" stroke-opacity=".16" stroke-width="1"/>
+      <line x1="600" y1="560" x2="600" y2="1240" stroke-opacity=".12"/>
+      <line x1="260" y1="900" x2="940" y2="900" stroke-opacity=".12"/>
+      <!-- 外圈刻度 -->
+      <g stroke-opacity=".22">
+        <line x1="600" y1="586" x2="600" y2="574"/>
+        <line x1="600" y1="1214" x2="600" y2="1226"/>
+        <line x1="286" y1="900" x2="274" y2="900"/>
+        <line x1="914" y1="900" x2="926" y2="900"/>
+        <line x1="826" y1="718" x2="834" y2="710"/>
+        <line x1="374" y1="1082" x2="366" y2="1090"/>
+        <line x1="826" y1="1082" x2="834" y2="1090"/>
+        <line x1="374" y1="718" x2="366" y2="710"/>
+      </g>
+    </g>
+
+    <!-- 坐标字母 -->
+    <g fill="var(--ak-paper)" fill-opacity=".55" font-family="Cascadia Mono, Consolas, monospace"
+       font-size="13" letter-spacing="2">
+      <text x="612" y="572">A</text>
+      <text x="612" y="1250">B</text>
+      <text x="258" y="888">C</text>
+      <text x="932" y="888">D</text>
+    </g>
+
+    <!-- 骨架：创造亚当被拆成圆关节与线 -->
+    <g stroke="var(--ak-paper)" stroke-opacity=".85" stroke-width="2" fill="none" stroke-linecap="round">
+      <!-- 躯干 -->
+      <line x1="600" y1="800" x2="600" y2="1000"/>
+      <!-- 左臂两段 -->
+      <line x1="600" y1="820" x2="470" y2="760"/>
+      <line x1="470" y1="760" x2="356" y2="700"/>
+      <!-- 右臂伸向上方（"创造"的那个手势） -->
+      <line x1="600" y1="820" x2="740" y2="742"/>
+      <line x1="740" y1="742" x2="856" y2="672"/>
+      <!-- 腿 -->
+      <line x1="600" y1="1000" x2="510" y2="1160"/>
+      <line x1="510" y1="1160" x2="470" y2="1290"/>
+      <line x1="600" y1="1000" x2="690" y2="1160"/>
+      <line x1="690" y1="1160" x2="730" y2="1290"/>
+    </g>
+    <!-- 关节 -->
+    <g fill="none" stroke="var(--ak-accent)" stroke-width="1.5">
+      <circle cx="600" cy="820" r="13"/>
+      <circle cx="470" cy="760" r="10"/>
+      <circle cx="356" cy="700" r="8"/>
+      <circle cx="740" cy="742" r="10"/>
+      <circle cx="856" cy="672" r="8"/>
+      <circle cx="600" cy="1000" r="12"/>
+      <circle cx="510" cy="1160" r="9"/>
+      <circle cx="690" cy="1160" r="9"/>
+    </g>
+    <g fill="var(--ak-accent)">
+      <circle cx="600" cy="820" r="4"/>
+      <circle cx="600" cy="1000" r="4"/>
+      <circle cx="856" cy="672" r="3"/>
+    </g>
+
+    <!-- 头部 -->
+    <circle cx="600" cy="742" r="46" fill="var(--ak-paper)" fill-opacity=".93"/>
+    <circle cx="600" cy="742" r="46" fill="none" stroke="var(--ak-accent)" stroke-opacity=".5"/>
+    <g clip-path="url(#headclip)">
+      <clipPath id="headclip"><circle cx="600" cy="742" r="46"/></clipPath>
+      <rect x="540" y="726" width="120" height="15" fill="var(--ak-void)"/>
+      <line x1="540" y1="741" x2="660" y2="741" stroke="var(--ak-accent)" stroke-width="2"/>
+    </g>
+
+    <!-- 引线标注 -->
+    <g stroke="var(--ak-paper)" stroke-opacity=".3" stroke-width="1">
+      <line x1="646" y1="742" x2="742" y2="640"/>
+      <line x1="742" y1="640" x2="820" y2="640"/>
+    </g>
+    <text x="746" y="632" fill="var(--ak-paper)" fill-opacity=".55"
+          font-family="Cascadia Mono, Consolas, monospace" font-size="10" letter-spacing="2">SUBJECT 90</text>
+  </svg>
+
+  <!-- 白鸽队列：沿一条上扬的弧线排布 -->
+  <svg class="doves" viewBox="0 0 1200 1600" aria-hidden="true">
+    <defs>
+      <symbol id="dove" viewBox="0 0 120 72">
+        <path d="M60 4
+                 C74 12, 94 28, 114 58
+                 C96 48, 80 46, 67 51
+                 C63 64, 57 64, 53 51
+                 C40 46, 24 48, 6 58
+                 C26 28, 46 12, 60 4 Z"
+              fill="currentColor"/>
+      </symbol>
+    </defs>
+    <g style="color:var(--ak-paper)" transform="translate(88 -56)">
+      <use href="#dove" x="-60" y="-36" width="120" height="72" transform="translate(196 1272) scale(.42) rotate(-26)"/>
+      <use href="#dove" x="-60" y="-36" width="120" height="72" transform="translate(286 1176) scale(.50) rotate(-22)"/>
+      <use href="#dove" x="-60" y="-36" width="120" height="72" transform="translate(372 1068) scale(.58) rotate(-18)"/>
+      <use href="#dove" x="-60" y="-36" width="120" height="72" transform="translate(452 962)  scale(.66) rotate(-13)"/>
+      <use href="#dove" x="-60" y="-36" width="120" height="72" transform="translate(536 872)  scale(.74) rotate(-8)"/>
+      <use href="#dove" x="-60" y="-36" width="120" height="72" transform="translate(628 808)  scale(.82) rotate(-3)"/>
+      <use href="#dove" x="-60" y="-36" width="120" height="72" transform="translate(726 766)  scale(.74) rotate(4)"/>
+      <use href="#dove" x="-60" y="-36" width="120" height="72" transform="translate(820 716)  scale(.62) rotate(11)"/>
+      <use href="#dove" x="-60" y="-36" width="120" height="72" transform="translate(902 660)  scale(.50) rotate(18)"/>
+      <use href="#dove" x="-60" y="-36" width="120" height="72" transform="translate(968 596)  scale(.40) rotate(25)"/>
+      <use href="#dove" x="-60" y="-36" width="120" height="72" transform="translate(1022 536) scale(.32) rotate(32)" opacity=".7"/>
+    </g>
+    <g style="color:var(--ak-accent)" opacity=".9" transform="translate(88 -56)">
+      <use href="#dove" x="-60" y="-36" width="120" height="72" transform="translate(880 900) scale(.26) rotate(38)"/>
+    </g>
+  </svg>
+
+  <div class="cap">
+    <span class="ak-label">FIG. 90 — THE PROCESSION</span>
+    <span style="display:block;width:90px;height:1px;background:var(--ak-line)"></span>
+    <span class="ak-label">鸽群归巢 · 神圣指引</span>
+  </div>
+
+  <footer class="p-foot">
+    <div class="barcode-wrap">
+      <div class="ak-barcode"></div>
+      <span class="ak-num">AK·SS90·2505·A</span>
+    </div>
+    <span class="ak-label ak-label--hard">LATERANO · ARCHIVE</span>
+    <span class="ak-label">90 / 90</span>
+  </footer>
+</main>
+
+</body>
+</html>

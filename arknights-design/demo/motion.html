@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>动效示范 / MOTION — 显影 · 打字 · 绘制</title>
+<link rel="stylesheet" href="../assets/ak.css">
+<style>
+  .ak-page { width: 1320px; height: 820px; padding: 48px; }
+  .head { display: flex; justify-content: space-between; align-items: center;
+          padding-bottom: 14px; border-bottom: 1px solid var(--ak-line); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 36px; }
+  .card { position: relative; height: 520px; background: var(--ak-plate);
+          border: 1px solid var(--ak-line); padding: 24px; overflow: hidden; }
+  .card__k { font-family: var(--ak-font-mono); font-size: 10px; letter-spacing: .24em;
+             color: var(--ak-paper-2); text-transform: uppercase; }
+  .card__zh { margin-top: 8px; font-size: 26px; letter-spacing: .14em; }
+  .stage { position: absolute; left: 24px; right: 24px; bottom: 24px; height: 330px;
+           background: var(--ak-void); border: 1px solid var(--ak-line);
+           display: flex; align-items: center; justify-content: center; overflow: hidden; }
+
+  /* 1 显影：clip-path 从上往下揭开 */
+  .reveal { width: 78%; }
+  .reveal__bar { height: 14px; background: var(--ak-paper); margin-bottom: 10px; }
+  .reveal__bar:nth-child(2) { width: 72%; opacity: .7; }
+  .reveal__bar:nth-child(3) { width: 46%; opacity: .4; }
+  .reveal__wrap { animation: reveal 2.4s var(--ak-ease) infinite; }
+  @keyframes reveal {
+    0%, 8%   { clip-path: inset(0 0 100% 0); }
+    55%, 88% { clip-path: inset(0 0 0 0); }
+    100%     { clip-path: inset(0 0 100% 0); }
+  }
+
+  /* 2 打字：宽度 steps + 游标 */
+  .type { font-family: var(--ak-font-mono); font-size: 17px; letter-spacing: .1em;
+          color: var(--ak-paper); white-space: nowrap; overflow: hidden;
+          border-right: 2px solid var(--ak-accent);
+          width: 0; animation: type 3.2s steps(22) infinite; }
+  @keyframes type {
+    0%, 6%   { width: 0; }
+    62%, 88% { width: 21ch; }
+    100%     { width: 0; }
+  }
+
+  /* 3 绘制：stroke-dashoffset */
+  .draw { width: 86%; }
+  .draw path { fill: none; stroke: var(--ak-accent); stroke-width: 2;
+               stroke-dasharray: 620; stroke-dashoffset: 620;
+               animation: draw 3s var(--ak-ease) infinite; }
+  .draw circle { fill: var(--ak-paper); opacity: 0; animation: pop 3s var(--ak-ease) infinite; }
+  @keyframes draw {
+    0%, 6%   { stroke-dashoffset: 620; }
+    62%, 90% { stroke-dashoffset: 0; }
+    100%     { stroke-dashoffset: 620; }
+  }
+  @keyframes pop {
+    0%, 55%  { opacity: 0; }
+    64%, 90% { opacity: 1; }
+    100%     { opacity: 0; }
+  }
+
+  .foot { margin-top: 26px; display: flex; justify-content: space-between;
+          border-top: 1px solid var(--ak-line); padding-top: 14px; }
+</style>
+</head>
+<body class="ak" data-mode="dark" data-faction="rhodes">
+<main class="ak-page">
+  <header class="head">
+    <div class="ak-row" style="gap:12px"><div class="ak-crosshair"></div>
+      <span class="ak-label ak-label--bright">MOTION SPEC / 动效规范</span></div>
+    <span class="ak-label">三种动作 · 无回弹</span>
+  </header>
+
+  <section class="grid">
+    <article class="card">
+      <div class="card__k">01 / DEVELOP</div>
+      <div class="card__zh ak-zh">显影</div>
+      <div class="stage">
+        <div class="reveal reveal__wrap">
+          <div class="reveal__bar"></div><div class="reveal__bar"></div><div class="reveal__bar"></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__k">02 / TYPE-ON</div>
+      <div class="card__zh ak-zh">打字</div>
+      <div class="stage">
+        <div class="type">LINK ESTABLISHED 07</div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__k">03 / DRAW-ON</div>
+      <div class="card__zh ak-zh">绘制</div>
+      <div class="stage">
+        <svg class="draw" viewBox="0 0 300 120" aria-hidden="true">
+          <path d="M10 100 L80 40 L150 78 L220 26 L290 62"/>
+          <circle cx="80" cy="40" r="4"/><circle cx="220" cy="26" r="4"/>
+        </svg>
+      </div>
+    </article>
+  </section>
+
+  <footer class="foot">
+    <span class="ak-label">曲线 cubic-bezier(.2,.7,.2,1) · 时长 2.4–3.2s 循环</span>
+    <span class="ak-label">reduced-motion 下冻结为静态终态</span>
+  </footer>
+</main>
+</body>
+</html>

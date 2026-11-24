@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>静默协议 / SILENT PROTOCOL — AK 风格海报模板</title>
+<link rel="stylesheet" href="../assets/ak.css">
+<style>
+  /* 本页私有：只允许改位置与字号，不允许引入新颜色 */
+  .ak-page { padding: 0; }
+
+  /* 页眉 */
+  .p-head  { position: absolute; left: 56px; right: 56px; top: 44px; z-index: 6; }
+  .p-rule  { position: absolute; left: 56px; right: 56px; top: 84px; z-index: 6; }
+
+  /* 左侧竖排轨道 */
+  .rail {
+    position: absolute; left: 22px; top: 130px; bottom: 200px; width: 16px;
+    display: flex; flex-direction: column; align-items: center; gap: 20px;
+  }
+  .rail__txt {
+    writing-mode: vertical-rl;
+    font-family: var(--ak-font-mono); font-size: 10px;
+    letter-spacing: .38em; text-transform: uppercase; color: var(--ak-paper-2);
+  }
+  .rail__line { flex: 1; width: 1px; background: var(--ak-line); }
+
+  /* 主标题 */
+  .kicker { position: absolute; left: 56px; top: 296px; display: flex; align-items: center; gap: 12px; z-index: 5; }
+  .kicker__sq { width: 10px; height: 10px; background: var(--ak-signal); flex: none; }
+  .title-block { position: absolute; left: 56px; top: 330px; z-index: 5; }
+  .title-line { font-size: 208px; line-height: .8; letter-spacing: -.06em; }
+  .title-line--out { margin-left: .05em; }
+
+  /* 中文块 */
+  .zh-block { position: absolute; left: 56px; top: 742px; width: 520px; z-index: 5; }
+  .zh-title { font-size: 68px; line-height: 1; letter-spacing: .14em; }
+  .zh-sub { margin-top: 20px; font-size: 17px; letter-spacing: .2em; color: var(--ak-paper-2); }
+  .zh-rule { margin: 26px 0 0; width: 240px; }
+
+  /* 静区里的巨型描边编号 */
+  .quiet-num {
+    position: absolute; left: 48px; top: 880px; z-index: 2;
+    font-family: var(--ak-font-display); font-weight: 700;
+    font-size: 360px; line-height: .8; letter-spacing: -.08em;
+    color: transparent; -webkit-text-stroke: 1px var(--ak-line-strong);
+    opacity: .55;
+  }
+  .quiet-note {
+    position: absolute; left: 62px; top: 1218px; z-index: 5;
+    display: flex; align-items: center; gap: 14px;
+  }
+
+  /* 右上状态簇 */
+  .topright {
+    position: absolute; right: 56px; top: 128px; z-index: 6;
+    display: flex; flex-direction: column; align-items: flex-end; gap: 9px;
+  }
+
+  /* 右侧图版 */
+  .portrait { position: absolute; right: 56px; top: 120px; width: 452px; height: 1080px; z-index: 3; }
+  .portrait__plate { width: 100%; height: 100%; }
+  .portrait__svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .portrait__scan { position: absolute; inset: 0; opacity: .16; }
+  .portrait__edge { position: absolute; inset: 0; border: 1px solid var(--ak-line); }
+  .portrait__cap {
+    position: absolute; left: 10px; right: 10px; bottom: 12px;
+    display: flex; justify-content: space-between;
+    font-family: var(--ak-font-mono); font-size: 9px;
+    letter-spacing: .24em; color: var(--ak-paper-2); text-transform: uppercase;
+  }
+  .portrait__ticks { position: absolute; left: -14px; top: 0; bottom: 0; }
+
+  /* 数据栏 */
+  .data {
+    position: absolute; left: 56px; right: 56px; top: 1258px; z-index: 6;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    padding-top: 22px; border-top: 1px solid var(--ak-line);
+  }
+  .data .ak-field__v { font-size: 23px; }
+  .data .ak-field__v small { display: block; font-size: 10px; letter-spacing: .2em; color: var(--ak-paper-2); margin-top: 7px; }
+  .status-v { display: flex; align-items: center; gap: 10px; color: var(--ak-status); }
+
+  /* 页脚 */
+  .p-foot {
+    position: absolute; left: 56px; right: 56px; bottom: 52px; z-index: 6;
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 32px;
+  }
+  .foot-left { display: flex; flex-direction: column; gap: 12px; }
+  .barcode-wrap { display: flex; flex-direction: column; gap: 7px; width: 220px; }
+  .barcode-wrap .ak-num { font-size: 9px; letter-spacing: .3em; color: var(--ak-paper-2); }
+</style>
+</head>
+<body class="ak" data-mode="dark" data-faction="rhodes">
+
+<main class="ak-page ak-page--poster">
+  <div class="ak-crop"></div>
+
+  <!-- 页眉 -->
+  <header class="p-head ak-spread">
+    <div class="ak-row" style="gap:14px">
+      <div class="ak-crosshair"></div>
+      <span class="ak-label ak-label--bright">RHODES ISLAND · ARCHIVE TERMINAL</span>
+    </div>
+    <span class="ak-label">REF. AK-ED-07 &nbsp;/&nbsp; <span class="ak-num">1225.10.04</span></span>
+  </header>
+  <hr class="ak-rule p-rule">
+
+  <!-- 左侧轨道 -->
+  <div class="rail">
+    <span class="rail__txt">CLASSIFIED · 机密</span>
+    <span class="rail__line"></span>
+    <span class="rail__txt">DO NOT REPRODUCE</span>
+  </div>
+
+  <!-- 主标题 -->
+  <div class="kicker">
+    <span class="kicker__sq"></span>
+    <span class="ak-label ak-label--bright ak-label--hard">SIDE STORY / 07</span>
+    <span class="ak-label">— OPERATION FILE</span>
+  </div>
+  <div class="title-block">
+    <div class="title-line ak-mega">SILENT</div>
+    <div class="title-line ak-mega ak-outline ak-outline--thin title-line--out">PROTOCOL</div>
+  </div>
+
+  <!-- 右上状态 -->
+  <div class="topright">
+    <span class="ak-label" style="color:var(--ak-status)"><span class="ak-dot" style="background:currentColor"></span> LINK ESTABLISHED</span>
+    <span class="ak-label ak-label--hard">源石浓度 0.42 ppm</span>
+    <span class="ak-label ak-label--hard">解析进度 78%</span>
+  </div>
+
+  <!-- 中文 -->
+  <div class="zh-block">
+    <div class="zh-title ak-zh ak-zh--wide">静默协议</div>
+    <div class="zh-sub ak-zh">一次没有回声的撤离行动</div>
+    <hr class="ak-rule ak-rule--accent zh-rule">
+  </div>
+
+  <!-- 静区 -->
+  <div class="quiet-num">07</div>
+  <div class="quiet-note">
+    <span class="ak-label">ANNEX — 附件</span>
+    <span style="display:block;width:120px;height:1px;background:var(--ak-line)"></span>
+    <span class="ak-label">NO AUDIO RECOVERED</span>
+  </div>
+
+  <!-- 图版 -->
+  <figure class="portrait">
+    <div class="ak-plate portrait__plate"></div>
+    <div class="portrait__ticks ak-ticks--v"></div>
+    <svg class="portrait__svg" viewBox="0 0 452 1080" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0"   stop-color="#08090a" stop-opacity="0"/>
+          <stop offset=".55" stop-color="#08090a" stop-opacity="0"/>
+          <stop offset="1"   stop-color="#08090a" stop-opacity=".92"/>
+        </linearGradient>
+        <clipPath id="band"><rect x="0" y="690" width="452" height="22"/></clipPath>
+        <clipPath id="headClip">
+          <circle cx="226" cy="400" r="132"/>
+        </clipPath>
+        <g id="figure">
+          <path d="M-30 1080 C-18 790 64 560 226 530 C388 560 472 790 482 1080 Z"/>
+          <circle cx="226" cy="400" r="132"/>
+        </g>
+      </defs>
+
+      <g fill="none" stroke="#e8e6e1" stroke-opacity=".16">
+        <circle cx="226" cy="400" r="214"/>
+        <circle cx="226" cy="400" r="252" stroke-opacity=".07"/>
+      </g>
+
+      <use href="#figure" fill="#e8e6e1" fill-opacity=".93"/>
+
+      <!-- 面罩开槽：把头盔横向切开，露出机器内腔 -->
+      <g clip-path="url(#headClip)">
+        <rect x="60" y="372" width="332" height="46" fill="#08090a"/>
+        <line x1="60" y1="416" x2="392" y2="416" stroke="var(--ak-accent)" stroke-width="2"/>
+      </g>
+
+      <!-- 错位切割：把下半身向右移 18px，模拟印刷套印偏移 -->
+      <rect x="0" y="690" width="452" height="22" fill="#08090a"/>
+      <g clip-path="url(#band)" transform="translate(18 0)">
+        <use href="#figure" fill="#e8e6e1" fill-opacity=".93"/>
+      </g>
+      <line x1="0" y1="713" x2="452" y2="713" stroke="#e8e6e1" stroke-opacity=".35" stroke-width="1"/>
+
+      <!-- 底部淡出 -->
+      <rect x="0" y="640" width="452" height="440" fill="url(#fade)"/>
+
+      <!-- 准星 -->
+      <g stroke="#e8e6e1" stroke-opacity=".55" stroke-width="1">
+        <line x1="226" y1="86"  x2="226" y2="112"/>
+        <line x1="86"  y1="376" x2="112" y2="376"/>
+        <line x1="340" y1="376" x2="366" y2="376"/>
+      </g>
+    </svg>
+    <div class="portrait__edge"></div>
+    <div class="portrait__scan ak-scan"></div>
+    <figcaption class="portrait__cap">
+      <span>FIG. 07 — SUBJECT</span>
+      <span>SCAN 1:1</span>
+    </figcaption>
+  </figure>
+
+  <!-- 数据栏 -->
+  <div class="data">
+    <div class="ak-field">
+      <span class="ak-field__k">OPERATOR / 干员</span>
+      <span class="ak-field__v ak-zh">灰隼<small>GREY FALCON</small></span>
+    </div>
+    <div class="ak-field">
+      <span class="ak-field__k">SECTOR / 区域</span>
+      <span class="ak-field__v ak-zh">S-07 废弃矿区<small>ABANDONED MINING ZONE</small></span>
+    </div>
+    <div class="ak-field">
+      <span class="ak-field__k">CLEARANCE / 权限</span>
+      <span class="ak-field__v">B<small>RESTRICTED</small></span>
+    </div>
+    <div class="ak-field">
+      <span class="ak-field__k">STATUS / 状态</span>
+      <span class="ak-field__v status-v"><span class="ak-dot ak-dot--pulse"></span>ACTIVE</span>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="p-foot">
+    <div class="foot-left">
+      <span class="ak-label ak-label--hard">ISSUED BY / 罗德岛档案科</span>
+      <span class="ak-stamp">CLASSIFIED</span>
+    </div>
+    <div class="barcode-wrap">
+      <div class="ak-barcode"></div>
+      <span class="ak-num">AK·ED·07·1225·B</span>
+    </div>
+    <div style="text-align:right"><span class="ak-label">07 / 12</span></div>
+  </footer>
+</main>
+
+</body>
+</html>

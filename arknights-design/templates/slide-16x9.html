@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>任务简报 / BRIEFING 07 — AK 风格幻灯片模板</title>
+<link rel="stylesheet" href="../assets/ak.css">
+<style>
+  .ak-page { padding: 0; }
+
+  .p-head { position: absolute; left: 56px; right: 56px; top: 36px; z-index: 6;
+            display: flex; align-items: center; justify-content: space-between; }
+  .p-rule { position: absolute; left: 56px; right: 56px; top: 72px; z-index: 6; }
+
+  .kicker { position: absolute; left: 56px; top: 116px; display: flex; align-items: center; gap: 12px; z-index: 5; }
+  .kicker__sq { width: 10px; height: 10px; background: var(--ak-accent); flex: none; }
+
+  .title-block { position: absolute; left: 56px; top: 148px; z-index: 5; }
+  .title-line { font-size: 140px; line-height: .8; letter-spacing: -.055em; }
+  .title-line--out { margin-left: .04em; }
+
+  .zh-block { position: absolute; left: 56px; top: 376px; z-index: 5; }
+  .zh-title { font-size: 46px; line-height: 1; letter-spacing: .14em; }
+  .zh-rule { margin: 22px 0 0; width: 200px; }
+
+  .brief { position: absolute; left: 56px; top: 470px; width: 520px; z-index: 5;
+           display: flex; flex-direction: column; gap: 18px; }
+  .brief__row { display: grid; grid-template-columns: 84px 1fr; gap: 16px; align-items: baseline;
+                padding-top: 14px; border-top: 1px solid var(--ak-line); }
+  .brief__row .ak-field__k { padding-top: 2px; }
+  .brief__row .ak-body { color: var(--ak-paper); }
+  .brief__row .ak-num { color: var(--ak-accent); }
+
+  .portrait { position: absolute; right: 56px; top: 96px; width: 440px; height: 660px; z-index: 3; }
+  .portrait__scan { position: absolute; inset: 0; opacity: .16; }
+  .portrait__edge { position: absolute; inset: 0; border: 1px solid var(--ak-line); }
+  .portrait__cap { position: absolute; left: 10px; right: 10px; bottom: 10px;
+                   display: flex; justify-content: space-between;
+                   font-family: var(--ak-font-mono); font-size: 9px; letter-spacing: .24em;
+                   color: var(--ak-paper-2); text-transform: uppercase; }
+
+  .topright { position: absolute; right: 56px; top: 806px; display: flex; gap: 28px; z-index: 6; }
+
+  .data { position: absolute; left: 56px; right: 56px; bottom: 44px; z-index: 6;
+          display: grid; grid-template-columns: 220px 220px 220px 1fr;
+          align-items: end; gap: 24px; padding-top: 16px; border-top: 1px solid var(--ak-line); }
+  .data .ak-field__v { font-size: 20px; }
+  .data .ak-field__v small { display: block; font-size: 10px; letter-spacing: .2em; color: var(--ak-paper-2); margin-top: 5px; }
+  .status-v { display: flex; align-items: center; gap: 10px; color: var(--ak-status); }
+</style>
+</head>
+<body class="ak" data-mode="dark" data-faction="rhodes">
+
+<main class="ak-page ak-page--slide">
+  <div class="ak-crop" style="inset:24px"></div>
+
+  <header class="p-head">
+    <div class="ak-row" style="gap:14px">
+      <div class="ak-crosshair"></div>
+      <span class="ak-label ak-label--bright">BRIEFING · 07 / OPERATION FILE</span>
+    </div>
+    <div class="ak-row" style="gap:22px">
+      <span class="ak-label">CLEARANCE: B</span>
+      <span class="ak-label" style="color:var(--ak-status)"><span class="ak-dot" style="background:currentColor"></span> LINK ESTABLISHED</span>
+    </div>
+  </header>
+  <hr class="ak-rule p-rule">
+
+  <div class="kicker">
+    <span class="kicker__sq"></span>
+    <span class="ak-label ak-label--bright ak-label--hard">01 / OPERATION</span>
+    <span class="ak-label">— SECTOR S-07</span>
+  </div>
+
+  <div class="title-block">
+    <div class="title-line ak-mega">SILENT</div>
+    <div class="title-line ak-mega ak-outline ak-outline--thin title-line--out">PROTOCOL</div>
+  </div>
+
+  <div class="zh-block">
+    <div class="zh-title ak-zh ak-zh--wide">静默协议</div>
+    <hr class="ak-rule ak-rule--accent zh-rule">
+  </div>
+
+  <section class="brief">
+    <div class="brief__row">
+      <span class="ak-field__k">WINDOW</span>
+      <span class="ak-body ak-zh">撤离窗口 <span class="ak-num">04:00–04:40</span>，超时自行脱离</span>
+    </div>
+    <div class="brief__row">
+      <span class="ak-field__k">TARGET</span>
+      <span class="ak-body ak-zh">S-07 废弃矿区，第三竖井入口</span>
+    </div>
+    <div class="brief__row">
+      <span class="ak-field__k">SIGNAL</span>
+      <span class="ak-body ak-zh">无线电静默。不得主动联络，不得应答陌生呼号</span>
+    </div>
+    <div class="brief__row">
+      <span class="ak-field__k">UNITS</span>
+      <span class="ak-body ak-zh">12 人编队，2 组接应，全部更换识别码</span>
+    </div>
+  </section>
+
+  <figure class="portrait">
+    <div class="ak-plate" style="width:100%;height:100%"></div>
+    <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 440 660" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <clipPath id="h2"><circle cx="220" cy="250" r="104"/></clipPath>
+        <linearGradient id="f2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#08090a" stop-opacity="0"/>
+          <stop offset=".6" stop-color="#08090a" stop-opacity="0"/>
+          <stop offset="1" stop-color="#08090a" stop-opacity=".9"/>
+        </linearGradient>
+      </defs>
+      <g fill="none" stroke="#e8e6e1" stroke-opacity=".16">
+        <circle cx="220" cy="250" r="150"/>
+        <circle cx="220" cy="250" r="178" stroke-opacity=".07"/>
+      </g>
+      <path d="M-30 660 C-16 470 52 350 220 330 C388 350 456 470 470 660 Z" fill="#e8e6e1" fill-opacity=".93"/>
+      <circle cx="220" cy="250" r="104" fill="#e8e6e1" fill-opacity=".93"/>
+      <g clip-path="url(#h2)">
+        <rect x="40" y="230" width="360" height="36" fill="#08090a"/>
+        <line x1="40" y1="264" x2="400" y2="264" stroke="var(--ak-accent)" stroke-width="2"/>
+      </g>
+      <rect x="0" y="400" width="440" height="260" fill="url(#f2)"/>
+      <g stroke="#e8e6e1" stroke-opacity=".55" stroke-width="1">
+        <line x1="220" y1="60" x2="220" y2="82"/>
+        <line x1="86" y1="250" x2="108" y2="250"/>
+        <line x1="332" y1="250" x2="354" y2="250"/>
+      </g>
+    </svg>
+    <div class="portrait__edge"></div>
+    <div class="portrait__scan ak-scan"></div>
+    <figcaption class="portrait__cap"><span>FIG. 01 — TEAM</span><span>SCAN 1:1</span></figcaption>
+  </figure>
+
+  <div class="data">
+    <div class="ak-field">
+      <span class="ak-field__k">CODE NAME / 代号</span>
+      <span class="ak-field__v ak-zh">灰隼<small>GREY FALCON</small></span>
+    </div>
+    <div class="ak-field">
+      <span class="ak-field__k">SECTOR / 区域</span>
+      <span class="ak-field__v ak-zh">S-07 矿区<small>MINING ZONE</small></span>
+    </div>
+    <div class="ak-field">
+      <span class="ak-field__k">STATUS / 状态</span>
+      <span class="ak-field__v status-v"><span class="ak-dot ak-dot--pulse"></span>ACTIVE</span>
+    </div>
+    <div class="ak-spread" style="align-items:flex-end">
+      <span class="ak-num" style="font-size:9px;letter-spacing:.3em;color:var(--ak-paper-2)">AK·OP·07·1225·B</span>
+      <span class="ak-label">07 / 12</span>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>
