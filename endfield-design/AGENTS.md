@@ -45,3 +45,10 @@ demo/*.png
 ## 边界
 
 同人向风格方法，与鹰角网络无隶属关系；不含官方素材与商业字体（Gilroy / ProtestStrike / Novecento 均未分发）。
+
+## English (short)
+
+A visual-style skill package producing **single-file HTML** layouts, screenshot-able and printable.
+Read `SKILL.md` first; copy a template from `templates/`; run `node scripts/verify.mjs <file>` before delivery.
+Non-negotiable rules are listed in `SKILL.md`; `scripts/validate-package.mjs` checks package integrity.
+Unofficial fan study — no official trademarks, art or commercial fonts are included.
